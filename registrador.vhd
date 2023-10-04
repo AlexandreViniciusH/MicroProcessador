@@ -2,7 +2,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity reg8bits is
+entity registrador is
    port( clk      : in std_logic;
          reset    : in std_logic;
          wr_en    : in std_logic;
@@ -12,7 +12,7 @@ entity reg8bits is
 
 end entity;
 
-architecture a_reg8bits of reg8bits is
+architecture a_registrador of registrador is
     signal registro: unsigned(15 downto 0);
  begin
     process(clk,reset,wr_en)  -- acionado se houver mudança em clk, reset ou wr_en

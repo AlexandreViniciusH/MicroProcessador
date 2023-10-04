@@ -1,10 +1,13 @@
 v 4
-file . "banco_registradores_tb.vhd" "51dd980d82d8a101a90d5d973cce58f903b98f4a" "20231003154938.569":
-  entity banco_registradores_tb at 1( 0) + 0 on 15;
-  architecture a_banco_registradores_tb of banco_registradores_tb at 8( 109) + 0 on 16;
-file . "registrador.vhd" "c89f1b14622df9dc6833421555a4d374f9bacabe" "20231003154938.415":
-  entity reg8bits at 1( 0) + 0 on 11;
-  architecture a_reg8bits of reg8bits at 15( 303) + 0 on 12;
-file . "banco_registradores.vhd" "8241c3b79c8a7418c47e6fd8b8d2dc2b5a644f63" "20231003154938.489":
-  entity banco_registradores at 1( 0) + 0 on 13;
-  architecture a_banco_registradores of banco_registradores at 20( 562) + 0 on 14;
+file . "banco_registradores.vhd" "8241c3b79c8a7418c47e6fd8b8d2dc2b5a644f63" "20231004192011.271":
+  entity banco_registradores at 1( 0) + 0 on 17;
+  architecture a_banco_registradores of banco_registradores at 20( 562) + 0 on 18;
+file . "registrador.vhd" "17474ec87131434fc3237d95c0bc7665a81ee3d2" "20231004223458.173":
+  entity registrador at 1( 0) + 0 on 39;
+  architecture a_registrador of registrador at 15( 306) + 0 on 40;
+file . "banco_registradores_tb.vhd" "fe3167bb00dcedff3694c19e4049b24a4935a2e0" "20231004192025.096":
+  entity banco_registradores_tb at 1( 0) + 0 on 19;
+  architecture a_banco_registradores_tb of banco_registradores_tb at 8( 109) + 0 on 20;
+file . "registrador_tb.vhd" "8fd4ff2f881c3fdc0c28c6c472b1cabbe5165054" "20231004223505.105":
+  entity registrador_tb at 1( 0) + 0 on 41;
+  architecture a_registrador_tb of registrador_tb at 8( 108) + 0 on 42;
