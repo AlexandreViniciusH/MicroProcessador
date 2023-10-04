@@ -1,0 +1,10 @@
+v 4
+file . "banco_registradores_tb.vhd" "51dd980d82d8a101a90d5d973cce58f903b98f4a" "20231003154938.569":
+  entity banco_registradores_tb at 1( 0) + 0 on 15;
+  architecture a_banco_registradores_tb of banco_registradores_tb at 8( 109) + 0 on 16;
+file . "registrador.vhd" "c89f1b14622df9dc6833421555a4d374f9bacabe" "20231003154938.415":
+  entity reg8bits at 1( 0) + 0 on 11;
+  architecture a_reg8bits of reg8bits at 15( 303) + 0 on 12;
+file . "banco_registradores.vhd" "8241c3b79c8a7418c47e6fd8b8d2dc2b5a644f63" "20231003154938.489":
+  entity banco_registradores at 1( 0) + 0 on 13;
+  architecture a_banco_registradores of banco_registradores at 20( 562) + 0 on 14;

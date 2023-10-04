@@ -1,0 +1,24 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Tue Oct  3 13:48:51 2023
+[*]
+[dumpfile] "/home/lapti/Documents/Daniel/2023-2/ArqComp/lab_3/banco_registradores_tb.ghw"
+[dumpfile_mtime] "Tue Oct  3 13:38:26 2023"
+[dumpfile_size] 4293
+[savefile] "/home/lapti/Documents/Daniel/2023-2/ArqComp/lab_3/config.gtkw"
+[timestart] 0
+[size] 1920 970
+[pos] -101 -101
+*-28.350016 200000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.banco_registradores_tb.
+[sst_width] 233
+[signals_width] 158
+[sst_expanded] 1
+[sst_vpaned_height] 273
+@22
+#{top.banco_registradores_tb.reg_lido_1[15:0]} top.banco_registradores_tb.reg_lido_1[15] top.banco_registradores_tb.reg_lido_1[14] top.banco_registradores_tb.reg_lido_1[13] top.banco_registradores_tb.reg_lido_1[12] top.banco_registradores_tb.reg_lido_1[11] top.banco_registradores_tb.reg_lido_1[10] top.banco_registradores_tb.reg_lido_1[9] top.banco_registradores_tb.reg_lido_1[8] top.banco_registradores_tb.reg_lido_1[7] top.banco_registradores_tb.reg_lido_1[6] top.banco_registradores_tb.reg_lido_1[5] top.banco_registradores_tb.reg_lido_1[4] top.banco_registradores_tb.reg_lido_1[3] top.banco_registradores_tb.reg_lido_1[2] top.banco_registradores_tb.reg_lido_1[1] top.banco_registradores_tb.reg_lido_1[0]
+@23
+#{top.banco_registradores_tb.reg_lido_2[15:0]} top.banco_registradores_tb.reg_lido_2[15] top.banco_registradores_tb.reg_lido_2[14] top.banco_registradores_tb.reg_lido_2[13] top.banco_registradores_tb.reg_lido_2[12] top.banco_registradores_tb.reg_lido_2[11] top.banco_registradores_tb.reg_lido_2[10] top.banco_registradores_tb.reg_lido_2[9] top.banco_registradores_tb.reg_lido_2[8] top.banco_registradores_tb.reg_lido_2[7] top.banco_registradores_tb.reg_lido_2[6] top.banco_registradores_tb.reg_lido_2[5] top.banco_registradores_tb.reg_lido_2[4] top.banco_registradores_tb.reg_lido_2[3] top.banco_registradores_tb.reg_lido_2[2] top.banco_registradores_tb.reg_lido_2[1] top.banco_registradores_tb.reg_lido_2[0]
+[pattern_trace] 1
+[pattern_trace] 0
