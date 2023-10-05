@@ -18,7 +18,7 @@ entity banco_registradores is
 end entity;
 
 architecture a_banco_registradores of banco_registradores is
-    component reg8bits is
+    component registrador is
         port(
             clk      : in std_logic;
             reset    : in std_logic;
@@ -59,56 +59,56 @@ architecture a_banco_registradores of banco_registradores is
 
         rst <= '1' when reset = '1' else '0';
 
-        zero: reg8bits port map(
+        zero: registrador port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x0, 
             data_in => escrita, 
             data_out => lido_zero
         );
-        x1: reg8bits port map(
+        x1: registrador port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x1, 
             data_in => escrita, 
             data_out => lido_x1
         );
-        x2: reg8bits port map(
+        x2: registrador port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x2, 
             data_in => escrita, 
             data_out => lido_x2
         );
-        x3: reg8bits port map(
+        x3: registrador port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x3, 
             data_in => escrita, 
             data_out => lido_x3
         );
-        x4: reg8bits port map(
+        x4: registrador port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x4, 
             data_in => escrita, 
             data_out => lido_x4
         );
-        x5: reg8bits port map(
+        x5: registrador port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x5, 
             data_in => escrita, 
             data_out => lido_x5
         );
-        x6: reg8bits port map(
+        x6: registrador port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x6, 
             data_in => escrita, 
             data_out => lido_x6
         );
-        x7: reg8bits port map(
+        x7: registrador port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x7, 
