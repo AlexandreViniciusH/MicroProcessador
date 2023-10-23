@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Mon Oct 23 03:09:00 2023
+[*]
+[dumpfile] "/home/alexandre/Documents/arq/vhdl/projeto/STM8/unidade_controle_tb.ghw"
+[dumpfile_mtime] "Mon Oct 23 03:06:15 2023"
+[dumpfile_size] 4739
+[savefile] "/home/alexandre/Documents/arq/vhdl/projeto/STM8/unidade_controle.ghw.gtkw"
+[timestart] 0
+[size] 1920 1007
+[pos] -461 -204
+*-27.314297 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.unidade_controle_tb.
+[treeopen] top.unidade_controle_tb.uut.
+[sst_width] 211
+[signals_width] 174
+[sst_expanded] 1
+[sst_vpaned_height] 285
+@22
+#{top.unidade_controle_tb.upcode[5:0]} top.unidade_controle_tb.upcode[5] top.unidade_controle_tb.upcode[4] top.unidade_controle_tb.upcode[3] top.unidade_controle_tb.upcode[2] top.unidade_controle_tb.upcode[1] top.unidade_controle_tb.upcode[0]
+#{top.unidade_controle_tb.data_rom[31:0]} top.unidade_controle_tb.data_rom[31] top.unidade_controle_tb.data_rom[30] top.unidade_controle_tb.data_rom[29] top.unidade_controle_tb.data_rom[28] top.unidade_controle_tb.data_rom[27] top.unidade_controle_tb.data_rom[26] top.unidade_controle_tb.data_rom[25] top.unidade_controle_tb.data_rom[24] top.unidade_controle_tb.data_rom[23] top.unidade_controle_tb.data_rom[22] top.unidade_controle_tb.data_rom[21] top.unidade_controle_tb.data_rom[20] top.unidade_controle_tb.data_rom[19] top.unidade_controle_tb.data_rom[18] top.unidade_controle_tb.data_rom[17] top.unidade_controle_tb.data_rom[16] top.unidade_controle_tb.data_rom[15] top.unidade_controle_tb.data_rom[14] top.unidade_controle_tb.data_rom[13] top.unidade_controle_tb.data_rom[12] top.unidade_controle_tb.data_rom[11] top.unidade_controle_tb.data_rom[10] top.unidade_controle_tb.data_rom[9] top.unidade_controle_tb.data_rom[8] top.unidade_controle_tb.data_rom[7] top.unidade_controle_tb.data_rom[6] top.unidade_controle_tb.data_rom[5] top.unidade_controle_tb.data_rom[4] top.unidade_controle_tb.data_rom[3] top.unidade_controle_tb.data_rom[2] top.unidade_controle_tb.data_rom[1] top.unidade_controle_tb.data_rom[0]
+@28
+top.unidade_controle_tb.uut.progc.clk
+top.unidade_controle_tb.uut.progc.reset
+top.unidade_controle_tb.uut.progc.wr_en
+top.unidade_controle_tb.uut.maquina.estado
+top.unidade_controle_tb.uut.progc.jmp
+@22
+#{top.unidade_controle_tb.uut.endereco_jmp[6:0]} top.unidade_controle_tb.uut.endereco_jmp[6] top.unidade_controle_tb.uut.endereco_jmp[5] top.unidade_controle_tb.uut.endereco_jmp[4] top.unidade_controle_tb.uut.endereco_jmp[3] top.unidade_controle_tb.uut.endereco_jmp[2] top.unidade_controle_tb.uut.endereco_jmp[1] top.unidade_controle_tb.uut.endereco_jmp[0]
+@23
+#{top.unidade_controle_tb.uut.endereco_lido[6:0]} top.unidade_controle_tb.uut.endereco_lido[6] top.unidade_controle_tb.uut.endereco_lido[5] top.unidade_controle_tb.uut.endereco_lido[4] top.unidade_controle_tb.uut.endereco_lido[3] top.unidade_controle_tb.uut.endereco_lido[2] top.unidade_controle_tb.uut.endereco_lido[1] top.unidade_controle_tb.uut.endereco_lido[0]
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,31 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Sun Oct 22 22:21:16 2023
+[*]
+[dumpfile] "/home/alexandre/Documents/arq/vhdl/projeto/STM8/PC_tb.ghw"
+[dumpfile_mtime] "Sun Oct 22 22:09:50 2023"
+[dumpfile_size] 2225
+[savefile] "/home/alexandre/Documents/arq/vhdl/projeto/STM8/PC.gtkw"
+[timestart] 0
+[size] 1920 1007
+[pos] -461 -204
+*-27.337364 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.pc_tb.
+[treeopen] top.pc_tb.uut.
+[sst_width] 211
+[signals_width] 166
+[sst_expanded] 1
+[sst_vpaned_height] 285
+@28
+top.pc_tb.reset
+top.pc_tb.clk
+top.pc_tb.wr_en
+@22
+#{top.pc_tb.data_out[6:0]} top.pc_tb.data_out[6] top.pc_tb.data_out[5] top.pc_tb.data_out[4] top.pc_tb.data_out[3] top.pc_tb.data_out[2] top.pc_tb.data_out[1] top.pc_tb.data_out[0]
+#{top.pc_tb.uut.aux[6:0]} top.pc_tb.uut.aux[6] top.pc_tb.uut.aux[5] top.pc_tb.uut.aux[4] top.pc_tb.uut.aux[3] top.pc_tb.uut.aux[2] top.pc_tb.uut.aux[1] top.pc_tb.uut.aux[0]
+#{top.pc_tb.uut.data_out_reg[6:0]} top.pc_tb.uut.data_out_reg[6] top.pc_tb.uut.data_out_reg[5] top.pc_tb.uut.data_out_reg[4] top.pc_tb.uut.data_out_reg[3] top.pc_tb.uut.data_out_reg[2] top.pc_tb.uut.data_out_reg[1] top.pc_tb.uut.data_out_reg[0]
+@23
+#{top.pc_tb.uut.data_in_reg[6:0]} top.pc_tb.uut.data_in_reg[6] top.pc_tb.uut.data_in_reg[5] top.pc_tb.uut.data_in_reg[4] top.pc_tb.uut.data_in_reg[3] top.pc_tb.uut.data_in_reg[2] top.pc_tb.uut.data_in_reg[1] top.pc_tb.uut.data_in_reg[0]
+[pattern_trace] 1
+[pattern_trace] 0
