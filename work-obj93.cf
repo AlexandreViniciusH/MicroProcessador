@@ -1,13 +1,7 @@
 v 4
-file . "banco_registradores.vhd" "8a5e94fde076def2c547e468487ce4456af946a6" "20231004230015.359":
-  entity banco_registradores at 1( 0) + 0 on 43;
-  architecture a_banco_registradores of banco_registradores at 20( 562) + 0 on 44;
-file . "registrador.vhd" "17474ec87131434fc3237d95c0bc7665a81ee3d2" "20231004223458.173":
-  entity registrador at 1( 0) + 0 on 39;
-  architecture a_registrador of registrador at 15( 306) + 0 on 40;
-file . "banco_registradores_tb.vhd" "8ce49d453727264cdd6341f2c27a37550edad196" "20231004230026.444":
-  entity banco_registradores_tb at 1( 0) + 0 on 45;
-  architecture a_banco_registradores_tb of banco_registradores_tb at 8( 109) + 0 on 46;
-file . "registrador_tb.vhd" "8fd4ff2f881c3fdc0c28c6c472b1cabbe5165054" "20231004223505.105":
-  entity registrador_tb at 1( 0) + 0 on 41;
-  architecture a_registrador_tb of registrador_tb at 8( 108) + 0 on 42;
+file . "maquina_estados_tb.vhd" "22b272b9a0bd75c99e718ce07b7763709f4857b6" "20231022204056.902":
+  entity maquina_estados_tb at 1( 0) + 0 on 13;
+  architecture a_maquina_estados_tb of maquina_estados_tb at 8( 119) + 0 on 14;
+file . "maquina_estados.vhd" "0dfd76d6f4afffe3304dc709be4e1157c1a78e90" "20231022204056.846":
+  entity maquina_estados at 1( 0) + 0 on 11;
+  architecture a_maquina_estados of maquina_estados at 13( 249) + 0 on 12;

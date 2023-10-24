@@ -60,10 +60,10 @@ architecture a_unidade_controle of unidade_controle is
     pc_en <= '1' when estado = '1' else '0';
     upcode <= dado(31 downto 26);
     jmp <= '1' when upcode = "000010" else
-              '0';
-    data_rom <= dado when estado = '0' else
---        data_rom when estado = '1' else
-        "00000000000000000000000000000000";
+            '0';
+
+    data_rom <= dado when estado = '0';
+
     endereco_jmp <= dado(6 downto 0) when jmp = '1' else
                     "0000000";
 
