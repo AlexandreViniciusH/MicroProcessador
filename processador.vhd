@@ -6,7 +6,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity top_level is
+entity processador is
     port(
         sel_cte_ext : in std_logic;
 
@@ -26,7 +26,7 @@ entity top_level is
 
 end entity;
 
-architecture a_top_level of top_level is
+architecture a_processador of processador is
     component banco_registradores is
         port (
             sel_reg_lido_1  : in unsigned(2 downto 0);

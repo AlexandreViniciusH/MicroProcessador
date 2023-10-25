@@ -1,7 +1,0 @@
-v 4
-file . "maquina_estados_tb.vhd" "22b272b9a0bd75c99e718ce07b7763709f4857b6" "20231022204056.902":
-  entity maquina_estados_tb at 1( 0) + 0 on 13;
-  architecture a_maquina_estados_tb of maquina_estados_tb at 8( 119) + 0 on 14;
-file . "maquina_estados.vhd" "0dfd76d6f4afffe3304dc709be4e1157c1a78e90" "20231022204056.846":
-  entity maquina_estados at 1( 0) + 0 on 11;
-  architecture a_maquina_estados of maquina_estados at 13( 249) + 0 on 12;

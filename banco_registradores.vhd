@@ -18,7 +18,7 @@ entity banco_registradores is
 end entity;
 
 architecture a_banco_registradores of banco_registradores is
-    component registrador is
+    component registrador8b is
         port(
             clk      : in std_logic;
             reset    : in std_logic;
@@ -59,56 +59,56 @@ architecture a_banco_registradores of banco_registradores is
 
         rst <= '1' when reset = '1' else '0';
 
-        zero: registrador port map(
+        zero: registrador8b port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x0, 
             data_in => escrita, 
             data_out => lido_zero
         );
-        x1: registrador port map(
+        x1: registrador8b port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x1, 
             data_in => escrita, 
             data_out => lido_x1
         );
-        x2: registrador port map(
+        x2: registrador8b port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x2, 
             data_in => escrita, 
             data_out => lido_x2
         );
-        x3: registrador port map(
+        x3: registrador8b port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x3, 
             data_in => escrita, 
             data_out => lido_x3
         );
-        x4: registrador port map(
+        x4: registrador8b port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x4, 
             data_in => escrita, 
             data_out => lido_x4
         );
-        x5: registrador port map(
+        x5: registrador8b port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x5, 
             data_in => escrita, 
             data_out => lido_x5
         );
-        x6: registrador port map(
+        x6: registrador8b port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x6, 
             data_in => escrita, 
             data_out => lido_x6
         );
-        x7: registrador port map(
+        x7: registrador8b port map(
             clk => clk, 
             reset => rst, 
             wr_en => wr_en_x7, 

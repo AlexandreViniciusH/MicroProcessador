@@ -35,34 +35,33 @@ architecture a_unidade_controle of unidade_controle is
 
     component maquina_estados is
         port
-        (
-            clk : in std_logic;
-            rst : in std_logic;
-            wr_en : in std_logic;
-            data_out : out std_logic
+        port( 
+            clk: in std_logic;
+            rst: in std_logic;
+            estado: out unsigned(1 downto 0)
         );
     end component;
 
     signal endereco_lido, endereco_jmp : unsigned (6 downto 0);
-    signal estado, pc_en, jmp : std_logic;
+    signal pc_en, jmp : std_logic;
     signal dado : unsigned (31 downto 0);
     signal upcode : unsigned (5 downto 0);
+    signal estado : unsigned(1 downto 0);
 
     begin
 
     maquina : maquina_estados port map(
         clk => clk,
         rst => reset,
-        wr_en => wr_en,
-        data_out => estado
-
+        estado => estado
     );
-    pc_en <= '1' when estado = '1' else '0';
+    
+    pc_en <= '1' when estado = "01" else '0';
     upcode <= dado(31 downto 26);
     jmp <= '1' when upcode = "000010" else
             '0';
 
-    data_rom <= dado when estado = '0';
+    data_rom <= dado when estado = "00";
 
     endereco_jmp <= dado(6 downto 0) when jmp = '1' else
                     "0000000";
