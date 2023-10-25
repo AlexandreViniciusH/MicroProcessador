@@ -34,7 +34,6 @@ architecture a_unidade_controle of unidade_controle is
     end component;
 
     component maquina_estados is
-        port
         port( 
             clk: in std_logic;
             rst: in std_logic;
@@ -43,9 +42,12 @@ architecture a_unidade_controle of unidade_controle is
     end component;
 
     signal endereco_lido, endereco_jmp : unsigned (6 downto 0);
-    signal pc_en, jmp : std_logic;
+    signal pc_en, 
+           jmp,
+           add,
+           addi : std_logic;
     signal dado : unsigned (31 downto 0);
-    signal upcode : unsigned (5 downto 0);
+    signal opcode : unsigned (5 downto 0);
     signal estado : unsigned(1 downto 0);
 
     begin
@@ -56,13 +58,17 @@ architecture a_unidade_controle of unidade_controle is
         estado => estado
     );
     
-    pc_en <= '1' when estado = "01" else '0';
-    upcode <= dado(31 downto 26);
-    jmp <= '1' when upcode = "000010" else
-            '0';
-
+    -- fetch
     data_rom <= dado when estado = "00";
 
+    -- decode 
+    opcode <= dado(31 downto 26) when estado == "01";
+    jmp <= '1' when opcode = "000010" else '0';
+    add <= '1' when opcode = "000000" else '0';
+    addi <= '1' when opcode = "001000" else '0';
+
+    pc_en <= '1' when estado = "01" else '0';
+    
     endereco_jmp <= dado(6 downto 0) when jmp = '1' else
                     "0000000";
 

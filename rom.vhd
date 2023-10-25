@@ -23,6 +23,14 @@ architecture a_rom of rom is
     6 => "00001111000011110000111100001111",
     32 => "11110000111100001111000011110000",
 
+    -- addi r3, zero, 5
+    -- addi r4, zero, 8
+    -- add  r5, r3, r4
+    -- addi r5, r5, -1
+    -- jmp 20
+    -- add  r3, r5, zero
+    -- jmp 3
+
     others => (others => '0')
     );
 begin
