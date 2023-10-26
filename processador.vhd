@@ -97,6 +97,8 @@ architecture a_processador of processador is
             valor_imm => valor_imm
         );
 
+        estado <= state;
+
         ---------------------- EXECUTE ---------------------------
         w_e <= wr_en when state = "10" else '0';
 

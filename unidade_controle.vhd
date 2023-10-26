@@ -130,7 +130,6 @@ architecture a_unidade_controle of unidade_controle is
                     "00";
 
     ---------------------- EXECUTE ----------------------------
-    w_e <= wr_en when state = "10" else '0';
 
     pc_en <= '1' when state = "10" else '0';
     
