@@ -39,3 +39,8 @@ descrição: pula para o endereço da memória dos digitos 6 a 0
 
 - No arquivo rom.vhd (das linhas 17 a 40) estão descritas as etapas para executar o programa solicitado.
 - Os test_benches principais estão com suas ondas de visualização salvas em visualiza_processador.gtkw e visualiza_uc.gtkw
+
+- CORREÇÕES:
+reduzir os 32 bits para 16
+extensão de constante
+corrigir a sintaxe do assembly
