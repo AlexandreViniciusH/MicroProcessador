@@ -28,13 +28,15 @@ ghdl -e rom
 ghdl -a unidade_controle.vhd
 ghdl -e unidade_controle
 
-# ghdl -a unidade_controle_tb.vhd
-# ghdl -e unidade_controle_tb
+ghdl -a unidade_controle_tb.vhd
+ghdl -e unidade_controle_tb
 
-ghdl -a processador.vhd
-ghdl -e processador
+ghdl -r unidade_controle_tb --wave=unidade_controle_tb.ghw
 
-ghdl -a processador_tb.vhd
-ghdl -e processador_tb
+# ghdl -a processador.vhd
+# ghdl -e processador
 
-ghdl -r processador_tb --wave=processador_tb.ghw
+# ghdl -a processador_tb.vhd
+# ghdl -e processador_tb
+
+# ghdl -r processador_tb --wave=processador_tb.ghw

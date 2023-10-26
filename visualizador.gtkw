@@ -1,0 +1,32 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu Oct 26 14:34:24 2023
+[*]
+[dumpfile] "/home/lapti/Documents/Daniel/2023-2/ArqComp/MicroProcessador/unidade_controle_tb.ghw"
+[dumpfile_mtime] "Thu Oct 26 14:31:20 2023"
+[dumpfile_size] 8665
+[savefile] "/home/lapti/Documents/Daniel/2023-2/ArqComp/MicroProcessador/visualizador.gtkw"
+[timestart] 0
+[size] 1920 1012
+[pos] -29 -29
+*-28.323864 789000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[sst_width] 212
+[signals_width] 233
+[sst_expanded] 1
+[sst_vpaned_height] 574
+@22
+#{top.unidade_controle_tb.reg_lido_1[15:0]} top.unidade_controle_tb.reg_lido_1[15] top.unidade_controle_tb.reg_lido_1[14] top.unidade_controle_tb.reg_lido_1[13] top.unidade_controle_tb.reg_lido_1[12] top.unidade_controle_tb.reg_lido_1[11] top.unidade_controle_tb.reg_lido_1[10] top.unidade_controle_tb.reg_lido_1[9] top.unidade_controle_tb.reg_lido_1[8] top.unidade_controle_tb.reg_lido_1[7] top.unidade_controle_tb.reg_lido_1[6] top.unidade_controle_tb.reg_lido_1[5] top.unidade_controle_tb.reg_lido_1[4] top.unidade_controle_tb.reg_lido_1[3] top.unidade_controle_tb.reg_lido_1[2] top.unidade_controle_tb.reg_lido_1[1] top.unidade_controle_tb.reg_lido_1[0]
+#{top.unidade_controle_tb.reg_lido_2[15:0]} top.unidade_controle_tb.reg_lido_2[15] top.unidade_controle_tb.reg_lido_2[14] top.unidade_controle_tb.reg_lido_2[13] top.unidade_controle_tb.reg_lido_2[12] top.unidade_controle_tb.reg_lido_2[11] top.unidade_controle_tb.reg_lido_2[10] top.unidade_controle_tb.reg_lido_2[9] top.unidade_controle_tb.reg_lido_2[8] top.unidade_controle_tb.reg_lido_2[7] top.unidade_controle_tb.reg_lido_2[6] top.unidade_controle_tb.reg_lido_2[5] top.unidade_controle_tb.reg_lido_2[4] top.unidade_controle_tb.reg_lido_2[3] top.unidade_controle_tb.reg_lido_2[2] top.unidade_controle_tb.reg_lido_2[1] top.unidade_controle_tb.reg_lido_2[0]
+@28
+#{top.unidade_controle_tb.estado[1:0]} top.unidade_controle_tb.estado[1] top.unidade_controle_tb.estado[0]
+@22
+#{top.unidade_controle_tb.saida_ula[15:0]} top.unidade_controle_tb.saida_ula[15] top.unidade_controle_tb.saida_ula[14] top.unidade_controle_tb.saida_ula[13] top.unidade_controle_tb.saida_ula[12] top.unidade_controle_tb.saida_ula[11] top.unidade_controle_tb.saida_ula[10] top.unidade_controle_tb.saida_ula[9] top.unidade_controle_tb.saida_ula[8] top.unidade_controle_tb.saida_ula[7] top.unidade_controle_tb.saida_ula[6] top.unidade_controle_tb.saida_ula[5] top.unidade_controle_tb.saida_ula[4] top.unidade_controle_tb.saida_ula[3] top.unidade_controle_tb.saida_ula[2] top.unidade_controle_tb.saida_ula[1] top.unidade_controle_tb.saida_ula[0]
+#{top.unidade_controle_tb.data_rom[31:0]} top.unidade_controle_tb.data_rom[31] top.unidade_controle_tb.data_rom[30] top.unidade_controle_tb.data_rom[29] top.unidade_controle_tb.data_rom[28] top.unidade_controle_tb.data_rom[27] top.unidade_controle_tb.data_rom[26] top.unidade_controle_tb.data_rom[25] top.unidade_controle_tb.data_rom[24] top.unidade_controle_tb.data_rom[23] top.unidade_controle_tb.data_rom[22] top.unidade_controle_tb.data_rom[21] top.unidade_controle_tb.data_rom[20] top.unidade_controle_tb.data_rom[19] top.unidade_controle_tb.data_rom[18] top.unidade_controle_tb.data_rom[17] top.unidade_controle_tb.data_rom[16] top.unidade_controle_tb.data_rom[15] top.unidade_controle_tb.data_rom[14] top.unidade_controle_tb.data_rom[13] top.unidade_controle_tb.data_rom[12] top.unidade_controle_tb.data_rom[11] top.unidade_controle_tb.data_rom[10] top.unidade_controle_tb.data_rom[9] top.unidade_controle_tb.data_rom[8] top.unidade_controle_tb.data_rom[7] top.unidade_controle_tb.data_rom[6] top.unidade_controle_tb.data_rom[5] top.unidade_controle_tb.data_rom[4] top.unidade_controle_tb.data_rom[3] top.unidade_controle_tb.data_rom[2] top.unidade_controle_tb.data_rom[1] top.unidade_controle_tb.data_rom[0]
+#{top.unidade_controle_tb.upcode[5:0]} top.unidade_controle_tb.upcode[5] top.unidade_controle_tb.upcode[4] top.unidade_controle_tb.upcode[3] top.unidade_controle_tb.upcode[2] top.unidade_controle_tb.upcode[1] top.unidade_controle_tb.upcode[0]
+@28
+top.unidade_controle_tb.clk
+@29
+top.unidade_controle_tb.reset
+[pattern_trace] 1
+[pattern_trace] 0
