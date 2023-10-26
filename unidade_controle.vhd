@@ -104,25 +104,27 @@ architecture a_unidade_controle of unidade_controle is
                     "0000000";
 
     -- registrador acumulador eu defini sendo o 001
-    sel_reg_lido_1 <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' else 
-                      dado(2 downto 0) when ld = '1' else 
-                      "000" when clr = '1' else
+    sel_reg_lido_1 <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' else
+                      dado(2 downto 0) when ld = '1' else -- src do ld
+                      "000" when clr = '1' else -- no fim o clear é dst <= 0 + 0
                       "000";
-    sel_reg_lido_2 <= dado(2 downto 0) when add = '1' or sub = '1' else
+    sel_reg_lido_2 <= dado(2 downto 0) when add = '1' or sub = '1' else -- src do sub
                       "000";
 
-    sel_reg_escrito <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' else  
-                       dado(5 downto 3) when ld = '1' else
-                       dado(2 downto 0) when clr = '1' else
+    sel_reg_escrito <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' else  -- todos os dst são o acumulador
+                       dado(5 downto 3) when ld = '1' else -- dst do ld
+                       dado(2 downto 0) when clr = '1' else -- dst do clear
                        "000";
     
     valor_imm <= dado(15 downto 0) when addi = '1' or subi = '1' else
                "0000000000000000";
 
+    -- habilita ou não o uso de valor imediato
     im_en <= '0' when add = '1' or sub = '1' else
              '1' when addi = '1' or subi = '1' or ld = '1' or clr = '1' else
              '0';
 
+    -- seleciona se a operação é adição ou subtração para a ula realizar
     sel_operacao <= "00" when add = '1' or addi = '1' or ld = '1' or clr = '1' else
                     "01" when sub = '1' or subi = '1' else
                     "00";

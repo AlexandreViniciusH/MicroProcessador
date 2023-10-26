@@ -1,3 +1,7 @@
+-- ARQUITETURA E ORGANIZAÇÃO DE COMPUTADORES | LAB#5          --
+-- Professor Juliano Mourão Vieira | UTFPR | 2023.2           -- 
+-- Daniel Augusto Pires de Castro | Alexandre Vinicius Hubert --
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
