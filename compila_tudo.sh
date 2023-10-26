@@ -19,8 +19,8 @@ ghdl -e maquina_estados
 ghdl -a PC.vhd
 ghdl -e PC
 
-# ghdl -a PC_tb.vhd
-# ghdl -e PC_tb
+ghdl -a PC_tb.vhd
+ghdl -e PC_tb
 
 ghdl -a rom.vhd
 ghdl -e rom
@@ -33,10 +33,10 @@ ghdl -e unidade_controle_tb
 
 ghdl -r unidade_controle_tb --wave=unidade_controle_tb.ghw
 
-# ghdl -a processador.vhd
-# ghdl -e processador
+ghdl -a processador.vhd
+ghdl -e processador
 
-# ghdl -a processador_tb.vhd
-# ghdl -e processador_tb
+ghdl -a processador_tb.vhd
+ghdl -e processador_tb
 
-# ghdl -r processador_tb --wave=processador_tb.ghw
+ghdl -r processador_tb --wave=processador_tb.ghw

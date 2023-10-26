@@ -42,7 +42,7 @@ architecture a_rom of rom is
     others => (others => '0')
     );
 begin
-    process (clk)
+    process (clk)   
     begin
         if (rising_edge(clk))then
             dado <= conteudo_rom(to_integer(endereco));
