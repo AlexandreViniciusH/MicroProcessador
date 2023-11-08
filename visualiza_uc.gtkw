@@ -1,17 +1,19 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Thu Oct 26 17:25:09 2023
+[*] Wed Nov  8 14:16:13 2023
 [*]
-[dumpfile] "/home/lapti/Documents/Daniel/2023-2/ArqComp/MicroProcessador/unidade_controle_tb.ghw"
-[dumpfile_mtime] "Thu Oct 26 17:23:00 2023"
-[dumpfile_size] 3229
-[savefile] "/home/lapti/Documents/Daniel/2023-2/ArqComp/MicroProcessador/visualiza_uc.gtkw"
+[dumpfile] "/home/alexandre/Documents/arq/vhdl/projeto/unidade_controle_tb.ghw"
+[dumpfile_mtime] "Wed Nov  8 14:15:34 2023"
+[dumpfile_size] 32925
+[savefile] "/home/alexandre/Documents/arq/vhdl/projeto/visualiza_uc.gtkw"
 [timestart] 0
-[size] 1920 1012
-[pos] -29 -29
-*-30.354912 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1920 1007
+[pos] -1 -1
+*-30.354912 9289000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.unidade_controle_tb.
+[treeopen] top.unidade_controle_tb.uut.
+[treeopen] top.unidade_controle_tb.uut.progc.
 [sst_width] 212
 [signals_width] 190
 [sst_expanded] 1
@@ -24,11 +26,14 @@
 #{top.unidade_controle_tb.sel_reg_lido_2[2:0]} top.unidade_controle_tb.sel_reg_lido_2[2] top.unidade_controle_tb.sel_reg_lido_2[1] top.unidade_controle_tb.sel_reg_lido_2[0]
 #{top.unidade_controle_tb.sel_reg_lido_1[2:0]} top.unidade_controle_tb.sel_reg_lido_1[2] top.unidade_controle_tb.sel_reg_lido_1[1] top.unidade_controle_tb.sel_reg_lido_1[0]
 @22
-#{top.unidade_controle_tb.data_rom[31:0]} top.unidade_controle_tb.data_rom[31] top.unidade_controle_tb.data_rom[30] top.unidade_controle_tb.data_rom[29] top.unidade_controle_tb.data_rom[28] top.unidade_controle_tb.data_rom[27] top.unidade_controle_tb.data_rom[26] top.unidade_controle_tb.data_rom[25] top.unidade_controle_tb.data_rom[24] top.unidade_controle_tb.data_rom[23] top.unidade_controle_tb.data_rom[22] top.unidade_controle_tb.data_rom[21] top.unidade_controle_tb.data_rom[20] top.unidade_controle_tb.data_rom[19] top.unidade_controle_tb.data_rom[18] top.unidade_controle_tb.data_rom[17] top.unidade_controle_tb.data_rom[16] top.unidade_controle_tb.data_rom[15] top.unidade_controle_tb.data_rom[14] top.unidade_controle_tb.data_rom[13] top.unidade_controle_tb.data_rom[12] top.unidade_controle_tb.data_rom[11] top.unidade_controle_tb.data_rom[10] top.unidade_controle_tb.data_rom[9] top.unidade_controle_tb.data_rom[8] top.unidade_controle_tb.data_rom[7] top.unidade_controle_tb.data_rom[6] top.unidade_controle_tb.data_rom[5] top.unidade_controle_tb.data_rom[4] top.unidade_controle_tb.data_rom[3] top.unidade_controle_tb.data_rom[2] top.unidade_controle_tb.data_rom[1] top.unidade_controle_tb.data_rom[0]
+#{top.unidade_controle_tb.data_rom[31:0]} top.unidade_controle_tb.data_rom[15] top.unidade_controle_tb.data_rom[14] top.unidade_controle_tb.data_rom[13] top.unidade_controle_tb.data_rom[12] top.unidade_controle_tb.data_rom[11] top.unidade_controle_tb.data_rom[10] top.unidade_controle_tb.data_rom[9] top.unidade_controle_tb.data_rom[8] top.unidade_controle_tb.data_rom[7] top.unidade_controle_tb.data_rom[6] top.unidade_controle_tb.data_rom[5] top.unidade_controle_tb.data_rom[4] top.unidade_controle_tb.data_rom[3] top.unidade_controle_tb.data_rom[2] top.unidade_controle_tb.data_rom[1] top.unidade_controle_tb.data_rom[0]
 @28
 #{top.unidade_controle_tb.estado[1:0]} top.unidade_controle_tb.estado[1] top.unidade_controle_tb.estado[0]
 top.unidade_controle_tb.reset
-@29
 top.unidade_controle_tb.clk
+@22
+#{top.unidade_controle_tb.uut.progc.data_in_reg[6:0]} top.unidade_controle_tb.uut.progc.data_in_reg[6] top.unidade_controle_tb.uut.progc.data_in_reg[5] top.unidade_controle_tb.uut.progc.data_in_reg[4] top.unidade_controle_tb.uut.progc.data_in_reg[3] top.unidade_controle_tb.uut.progc.data_in_reg[2] top.unidade_controle_tb.uut.progc.data_in_reg[1] top.unidade_controle_tb.uut.progc.data_in_reg[0]
+@23
+#{top.unidade_controle_tb.uut.progc.data_out_reg[6:0]} top.unidade_controle_tb.uut.progc.data_out_reg[6] top.unidade_controle_tb.uut.progc.data_out_reg[5] top.unidade_controle_tb.uut.progc.data_out_reg[4] top.unidade_controle_tb.uut.progc.data_out_reg[3] top.unidade_controle_tb.uut.progc.data_out_reg[2] top.unidade_controle_tb.uut.progc.data_out_reg[1] top.unidade_controle_tb.uut.progc.data_out_reg[0]
 [pattern_trace] 1
 [pattern_trace] 0

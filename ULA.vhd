@@ -18,6 +18,7 @@ end entity;
 architecture a_ULA of ULA is 
     -- gambiarra mostrada em sala de aula para efetuar multiplicação
     signal multiplicacao: unsigned (31 downto 0);
+  --  signal carry_soma. carry_sub : std_logic;
 begin
     multiplicacao <= entrada0 * entrada1 when sel = "10" else 
                 "00000000000000000000000000000000";
@@ -30,4 +31,5 @@ begin
                 "0000000000000000";
 
     -- foi avisado em sala de aula que não precisava ser mais obrigatório comparação
+
 end architecture;

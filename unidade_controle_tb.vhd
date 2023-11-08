@@ -16,28 +16,31 @@ architecture a_unidade_controle_tb of unidade_controle_tb is
         wr_en    : in std_logic;
         clk      : in std_logic;
         reset    : in std_logic;
+        carry_add : in std_logic;
+        carry_sub : in std_logic;
 
         estado   : out unsigned (1 downto 0);
-        data_rom        : out unsigned (31 downto 0);
+        data_rom        : out unsigned (15 downto 0);
         sel_reg_lido_1  : out unsigned(2 downto 0);
         sel_reg_lido_2  : out unsigned(2 downto 0);
         sel_reg_escrito : out unsigned(2 downto 0);
         sel_operacao    : out unsigned(1 downto 0);
         im_en           : out std_logic; 
-        valor_imm       : out unsigned (15 downto 0)
+        valor_imm       : out unsigned (7 downto 0)
     );
     end component;
 
     signal clk, reset, wr_en : std_logic;
     signal estado   : unsigned (1 downto 0);
 
-    signal data_rom        : unsigned (31 downto 0);
+    signal data_rom        : unsigned (15 downto 0);
     signal sel_reg_lido_1  : unsigned(2 downto 0);
     signal sel_reg_lido_2  : unsigned(2 downto 0);
     signal sel_reg_escrito : unsigned(2 downto 0);
     signal sel_operacao    : unsigned(1 downto 0);
     signal im_en           : std_logic; 
-    signal valor_imm       : unsigned (15 downto 0);
+    signal valor_imm       : unsigned (7 downto 0);
+    signal carry_add, carry_sub : std_logic;
 
     constant period_time : time := 100 ns;
     signal finished : std_logic := '0';
@@ -49,7 +52,9 @@ architecture a_unidade_controle_tb of unidade_controle_tb is
         clk      => clk,
         reset    => reset,
         estado   => estado,
-        data_rom        => data_rom,
+        carry_add =>carry_add,
+        carry_sub => carry_sub,
+        data_rom  => data_rom,
         sel_reg_lido_1  => sel_reg_lido_1,
         sel_reg_lido_2  => sel_reg_lido_2,
         sel_reg_escrito => sel_reg_escrito,
@@ -79,7 +84,7 @@ architecture a_unidade_controle_tb of unidade_controle_tb is
 
     sim_time_proc : process
     begin
-        wait for 10 us;
+        wait for 100 us;
         finished <= '1';
         wait;
     end process sim_time_proc;

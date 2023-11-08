@@ -10,39 +10,35 @@ entity rom is
     port(
             clk : in std_logic;
             endereco : in unsigned (6 downto 0);
-            dado : out unsigned (31 downto 0)
+            dado : out unsigned (15 downto 0)
         );
 end entity;
 
 architecture a_rom of rom is
-    type mem is array (0 to 127) of unsigned (31 downto 0);
+    type mem is array (0 to 127) of unsigned (15 downto 0);
     constant conteudo_rom : mem := (
 
-    -- 1. Carrega R3 (o registrador 3) com o valor 5
-    0 => "00000000101010110000000000000101", -- ADD A, #$5
-    1 => "00000000111101100000000000011001", -- LD r3, A
-    2 => "00000000011111110000000000000001", -- CLR A
-    -- 2. Carrega R4 com 8
-    3 => "00000000101010110000000000001000", -- ADD A, #$8
-    4 => "00000000111101100000000000100001", -- LD  r4, A
-    5 => "00000000011111110000000000000001", -- CLR A
-    -- 3. Soma R3 com R4 e guarda em R5
-    6 => "00000000111110110000000000000011", -- ADD A, r3
-    7 => "00000000111110110000000000000100", -- ADD A, r4
-    8 => "00000000111101100000000000101001", -- LD r5, A
-    9 => "00000000011111110000000000000001", -- CLR A
-    -- 4. Subtrai 1 de R5
-    10 => "00000000111110110000000000000101", -- ADD  A, r5
-    11 => "00000000101000000000000000000001", -- SUB  A, #$1
-    12 => "00000000111101100000000000101001", -- LD r5, A
-    13 => "00000000011111110000000000000001", -- CLR r1
-    -- 5. Salta para o endereço 20
-    14 => "00000000101011000000000000010100", -- JPF #$14
-    -- 6. No endereço 20, copia R5 para R3
-    20 => "00000000111101100000000000011101", -- LD r3, r5
-    -- 7. Salta para a terceira instrução desta lista (R5 <= R3+R4)
-    21 => "00000000101011000000000000000110", -- JPF #$6
-
+    -- 1. Carrega R3 (registrador 3) com 0
+    0 => "0111111100000001", -- CLR A
+    1 => "1111011000011001", -- LD r3, A
+    -- 2. Carrega R4 com 0
+    2 => "0111111000000001", -- CLR A
+    3 => "1111011000100001", -- LD  r4, A
+    -- 3. Soma R3 com R4 e guarda em R4
+    4 => "1111011000001011", -- LD A, R3
+    5 => "1111101100000100", -- ADD A, r4
+    6 => "1111011000100001", -- LD  r4, A
+    -- 4. Soma 1 em R3
+    7 => "1111011000001011", -- LD A, R3
+    8 => "1010101100000001", -- ADD A, #$1
+    9 => "1111011000011001", -- LD r3, A
+    -- 5. Se r3<30 salta para endereço 3
+    10 => "0111111100000001", -- CLR A
+    11 => "1010101100011110", -- ADD A, #$30
+    12 => "1111000000000011", -- SUB A, r3
+    13 => "0010101011110111", -- JRPL #$-9
+    -- 6. Copia o valor de R4 para R5
+    14 => "1111011000101100", -- LD R5, R4
     others => (others => '0')
     );
 begin

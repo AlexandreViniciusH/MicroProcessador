@@ -16,7 +16,7 @@ architecture a_processador_tb of processador_tb is
             wr_en    : in std_logic;
             clk      : in std_logic;
             reset    : in std_logic;
-            data_rom : out unsigned (31 downto 0);
+            data_rom : out unsigned (15 downto 0);
             saida_ula: out unsigned (15 downto 0);
             estado    : out unsigned (1 downto 0);
             reg_lido_1      : out unsigned(15 downto 0);
@@ -33,7 +33,7 @@ architecture a_processador_tb of processador_tb is
 
     -- signal constante_ext :unsigned(15 downto 0);
 
-    signal data_rom: unsigned(31 downto 0);
+    signal data_rom: unsigned(15 downto 0);
     signal estado : unsigned(1 downto 0);
     signal reg_lido_1 : unsigned(15 downto 0);
     signal reg_lido_2 : unsigned(15 downto 0);
@@ -47,8 +47,8 @@ architecture a_processador_tb of processador_tb is
             data_rom  => data_rom,
             saida_ula  => saida_ula,
             estado     => estado,
-            reg_lido_1       => reg_lido_1,
-            reg_lido_2       => reg_lido_2
+            reg_lido_1 => reg_lido_1,
+            reg_lido_2 => reg_lido_2
         );
 
     reset_global: process
@@ -61,7 +61,7 @@ architecture a_processador_tb of processador_tb is
     
     sim_time_proc: process
     begin
-        wait for 10 us;         -- <== TEMPO TOTAL DA SIMULAÇÃO!!!
+        wait for 400 us;         -- <== TEMPO TOTAL DA SIMULAÇÃO!!!
         finished <= '1';
         wait;
     end process sim_time_proc;

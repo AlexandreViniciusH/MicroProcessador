@@ -1,17 +1,24 @@
 [*]
 [*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
-[*] Thu Oct 26 17:24:08 2023
+[*] Wed Nov  8 15:09:32 2023
 [*]
-[dumpfile] "/home/lapti/Documents/Daniel/2023-2/ArqComp/MicroProcessador/processador_tb.ghw"
-[dumpfile_mtime] "Thu Oct 26 17:23:00 2023"
-[dumpfile_size] 11489
-[savefile] "/home/lapti/Documents/Daniel/2023-2/ArqComp/MicroProcessador/visualiza_processador.gtkw"
+[dumpfile] "/home/alexandre/Documents/arq/vhdl/projeto/processador_tb.ghw"
+[dumpfile_mtime] "Wed Nov  8 15:09:29 2023"
+[dumpfile_size] 334555
+[savefile] "/home/alexandre/Documents/arq/vhdl/projeto/visualiza_processador.gtkw"
 [timestart] 0
-[size] 1920 1012
-[pos] -29 -29
-*-29.397713 1937000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1920 1007
+[pos] -1 -1
+*-29.397713 109000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] top.
 [treeopen] top.processador_tb.
+[treeopen] top.processador_tb.uut.
+[treeopen] top.processador_tb.uut.ligacoes_banco.x1.
+[treeopen] top.processador_tb.uut.ligacoes_banco.x3.
+[treeopen] top.processador_tb.uut.ligacoes_banco.x4.
+[treeopen] top.processador_tb.uut.ligacoes_banco.x5.
+[treeopen] top.processador_tb.uut.proguc.
+[treeopen] top.processador_tb.uut.proguc.progc.
 [sst_width] 212
 [signals_width] 233
 [sst_expanded] 1
@@ -23,9 +30,22 @@
 @28
 #{top.processador_tb.estado[1:0]} top.processador_tb.estado[1] top.processador_tb.estado[0]
 @22
-#{top.processador_tb.data_rom[31:0]} top.processador_tb.data_rom[31] top.processador_tb.data_rom[30] top.processador_tb.data_rom[29] top.processador_tb.data_rom[28] top.processador_tb.data_rom[27] top.processador_tb.data_rom[26] top.processador_tb.data_rom[25] top.processador_tb.data_rom[24] top.processador_tb.data_rom[23] top.processador_tb.data_rom[22] top.processador_tb.data_rom[21] top.processador_tb.data_rom[20] top.processador_tb.data_rom[19] top.processador_tb.data_rom[18] top.processador_tb.data_rom[17] top.processador_tb.data_rom[16] top.processador_tb.data_rom[15] top.processador_tb.data_rom[14] top.processador_tb.data_rom[13] top.processador_tb.data_rom[12] top.processador_tb.data_rom[11] top.processador_tb.data_rom[10] top.processador_tb.data_rom[9] top.processador_tb.data_rom[8] top.processador_tb.data_rom[7] top.processador_tb.data_rom[6] top.processador_tb.data_rom[5] top.processador_tb.data_rom[4] top.processador_tb.data_rom[3] top.processador_tb.data_rom[2] top.processador_tb.data_rom[1] top.processador_tb.data_rom[0]
+#{top.processador_tb.data_rom[31:0]} top.processador_tb.data_rom[15] top.processador_tb.data_rom[14] top.processador_tb.data_rom[13] top.processador_tb.data_rom[12] top.processador_tb.data_rom[11] top.processador_tb.data_rom[10] top.processador_tb.data_rom[9] top.processador_tb.data_rom[8] top.processador_tb.data_rom[7] top.processador_tb.data_rom[6] top.processador_tb.data_rom[5] top.processador_tb.data_rom[4] top.processador_tb.data_rom[3] top.processador_tb.data_rom[2] top.processador_tb.data_rom[1] top.processador_tb.data_rom[0]
 @28
 top.processador_tb.clk
 top.processador_tb.reset
+top.processador_tb.uut.proguc.carry_sub
+@22
+#{top.processador_tb.uut.proguc.endereco_jmp[6:0]} top.processador_tb.uut.proguc.endereco_jmp[6] top.processador_tb.uut.proguc.endereco_jmp[5] top.processador_tb.uut.proguc.endereco_jmp[4] top.processador_tb.uut.proguc.endereco_jmp[3] top.processador_tb.uut.proguc.endereco_jmp[2] top.processador_tb.uut.proguc.endereco_jmp[1] top.processador_tb.uut.proguc.endereco_jmp[0]
+#{top.processador_tb.uut.proguc.endereco_lido[6:0]} top.processador_tb.uut.proguc.endereco_lido[6] top.processador_tb.uut.proguc.endereco_lido[5] top.processador_tb.uut.proguc.endereco_lido[4] top.processador_tb.uut.proguc.endereco_lido[3] top.processador_tb.uut.proguc.endereco_lido[2] top.processador_tb.uut.proguc.endereco_lido[1] top.processador_tb.uut.proguc.endereco_lido[0]
+#{top.processador_tb.uut.proguc.dado[15:0]} top.processador_tb.uut.proguc.dado[15] top.processador_tb.uut.proguc.dado[14] top.processador_tb.uut.proguc.dado[13] top.processador_tb.uut.proguc.dado[12] top.processador_tb.uut.proguc.dado[11] top.processador_tb.uut.proguc.dado[10] top.processador_tb.uut.proguc.dado[9] top.processador_tb.uut.proguc.dado[8] top.processador_tb.uut.proguc.dado[7] top.processador_tb.uut.proguc.dado[6] top.processador_tb.uut.proguc.dado[5] top.processador_tb.uut.proguc.dado[4] top.processador_tb.uut.proguc.dado[3] top.processador_tb.uut.proguc.dado[2] top.processador_tb.uut.proguc.dado[1] top.processador_tb.uut.proguc.dado[0]
+#{top.processador_tb.uut.proguc.progc.data_in_reg[6:0]} top.processador_tb.uut.proguc.progc.data_in_reg[6] top.processador_tb.uut.proguc.progc.data_in_reg[5] top.processador_tb.uut.proguc.progc.data_in_reg[4] top.processador_tb.uut.proguc.progc.data_in_reg[3] top.processador_tb.uut.proguc.progc.data_in_reg[2] top.processador_tb.uut.proguc.progc.data_in_reg[1] top.processador_tb.uut.proguc.progc.data_in_reg[0]
+#{top.processador_tb.uut.proguc.progc.data_out_reg[6:0]} top.processador_tb.uut.proguc.progc.data_out_reg[6] top.processador_tb.uut.proguc.progc.data_out_reg[5] top.processador_tb.uut.proguc.progc.data_out_reg[4] top.processador_tb.uut.proguc.progc.data_out_reg[3] top.processador_tb.uut.proguc.progc.data_out_reg[2] top.processador_tb.uut.proguc.progc.data_out_reg[1] top.processador_tb.uut.proguc.progc.data_out_reg[0]
++{A} #{top.processador_tb.uut.ligacoes_banco.x1.registro[15:0]} top.processador_tb.uut.ligacoes_banco.x1.registro[15] top.processador_tb.uut.ligacoes_banco.x1.registro[14] top.processador_tb.uut.ligacoes_banco.x1.registro[13] top.processador_tb.uut.ligacoes_banco.x1.registro[12] top.processador_tb.uut.ligacoes_banco.x1.registro[11] top.processador_tb.uut.ligacoes_banco.x1.registro[10] top.processador_tb.uut.ligacoes_banco.x1.registro[9] top.processador_tb.uut.ligacoes_banco.x1.registro[8] top.processador_tb.uut.ligacoes_banco.x1.registro[7] top.processador_tb.uut.ligacoes_banco.x1.registro[6] top.processador_tb.uut.ligacoes_banco.x1.registro[5] top.processador_tb.uut.ligacoes_banco.x1.registro[4] top.processador_tb.uut.ligacoes_banco.x1.registro[3] top.processador_tb.uut.ligacoes_banco.x1.registro[2] top.processador_tb.uut.ligacoes_banco.x1.registro[1] top.processador_tb.uut.ligacoes_banco.x1.registro[0]
++{R3} #{top.processador_tb.uut.ligacoes_banco.x3.registro[15:0]} top.processador_tb.uut.ligacoes_banco.x3.registro[15] top.processador_tb.uut.ligacoes_banco.x3.registro[14] top.processador_tb.uut.ligacoes_banco.x3.registro[13] top.processador_tb.uut.ligacoes_banco.x3.registro[12] top.processador_tb.uut.ligacoes_banco.x3.registro[11] top.processador_tb.uut.ligacoes_banco.x3.registro[10] top.processador_tb.uut.ligacoes_banco.x3.registro[9] top.processador_tb.uut.ligacoes_banco.x3.registro[8] top.processador_tb.uut.ligacoes_banco.x3.registro[7] top.processador_tb.uut.ligacoes_banco.x3.registro[6] top.processador_tb.uut.ligacoes_banco.x3.registro[5] top.processador_tb.uut.ligacoes_banco.x3.registro[4] top.processador_tb.uut.ligacoes_banco.x3.registro[3] top.processador_tb.uut.ligacoes_banco.x3.registro[2] top.processador_tb.uut.ligacoes_banco.x3.registro[1] top.processador_tb.uut.ligacoes_banco.x3.registro[0]
++{R4} #{top.processador_tb.uut.ligacoes_banco.x4.registro[15:0]} top.processador_tb.uut.ligacoes_banco.x4.registro[15] top.processador_tb.uut.ligacoes_banco.x4.registro[14] top.processador_tb.uut.ligacoes_banco.x4.registro[13] top.processador_tb.uut.ligacoes_banco.x4.registro[12] top.processador_tb.uut.ligacoes_banco.x4.registro[11] top.processador_tb.uut.ligacoes_banco.x4.registro[10] top.processador_tb.uut.ligacoes_banco.x4.registro[9] top.processador_tb.uut.ligacoes_banco.x4.registro[8] top.processador_tb.uut.ligacoes_banco.x4.registro[7] top.processador_tb.uut.ligacoes_banco.x4.registro[6] top.processador_tb.uut.ligacoes_banco.x4.registro[5] top.processador_tb.uut.ligacoes_banco.x4.registro[4] top.processador_tb.uut.ligacoes_banco.x4.registro[3] top.processador_tb.uut.ligacoes_banco.x4.registro[2] top.processador_tb.uut.ligacoes_banco.x4.registro[1] top.processador_tb.uut.ligacoes_banco.x4.registro[0]
++{R5} #{top.processador_tb.uut.ligacoes_banco.x5.registro[15:0]} top.processador_tb.uut.ligacoes_banco.x5.registro[15] top.processador_tb.uut.ligacoes_banco.x5.registro[14] top.processador_tb.uut.ligacoes_banco.x5.registro[13] top.processador_tb.uut.ligacoes_banco.x5.registro[12] top.processador_tb.uut.ligacoes_banco.x5.registro[11] top.processador_tb.uut.ligacoes_banco.x5.registro[10] top.processador_tb.uut.ligacoes_banco.x5.registro[9] top.processador_tb.uut.ligacoes_banco.x5.registro[8] top.processador_tb.uut.ligacoes_banco.x5.registro[7] top.processador_tb.uut.ligacoes_banco.x5.registro[6] top.processador_tb.uut.ligacoes_banco.x5.registro[5] top.processador_tb.uut.ligacoes_banco.x5.registro[4] top.processador_tb.uut.ligacoes_banco.x5.registro[3] top.processador_tb.uut.ligacoes_banco.x5.registro[2] top.processador_tb.uut.ligacoes_banco.x5.registro[1] top.processador_tb.uut.ligacoes_banco.x5.registro[0]
+@23
+#{top.processador_tb.uut.proguc.opcode[7:0]} top.processador_tb.uut.proguc.opcode[7] top.processador_tb.uut.proguc.opcode[6] top.processador_tb.uut.proguc.opcode[5] top.processador_tb.uut.proguc.opcode[4] top.processador_tb.uut.proguc.opcode[3] top.processador_tb.uut.proguc.opcode[2] top.processador_tb.uut.proguc.opcode[1] top.processador_tb.uut.proguc.opcode[0]
 [pattern_trace] 1
 [pattern_trace] 0

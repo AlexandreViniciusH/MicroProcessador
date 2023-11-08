@@ -12,7 +12,7 @@ entity processador is
         wr_en    : in std_logic;
         clk      : in std_logic;
         reset    : in std_logic;
-        data_rom : out unsigned (31 downto 0);
+        data_rom : out unsigned (15 downto 0);
         saida_ula: out unsigned (15 downto 0);
         estado    : out unsigned (1 downto 0);
         reg_lido_1      : out unsigned(15 downto 0);
@@ -29,15 +29,17 @@ architecture a_processador of processador is
             wr_en    : in std_logic;
             clk      : in std_logic;
             reset    : in std_logic;
+            carry_add : in std_logic;
+            carry_sub : in std_logic;
 
             estado   : out unsigned (1 downto 0);
-            data_rom : out unsigned (31 downto 0);
+            data_rom : out unsigned (15 downto 0);
             sel_reg_lido_1  : out unsigned(2 downto 0);
             sel_reg_lido_2  : out unsigned(2 downto 0);
             sel_reg_escrito : out unsigned(2 downto 0);
             sel_operacao :    out unsigned(1 downto 0);
             im_en : out std_logic; 
-            valor_imm : out unsigned (15 downto 0)
+            valor_imm : out unsigned (7 downto 0)
         );
     end component;
 
@@ -70,7 +72,8 @@ architecture a_processador of processador is
     signal entrada1 : unsigned(15 downto 0);
     
     signal im_en, w_e: std_logic;
-    signal valor_imm : unsigned(15 downto 0);
+    signal valor_imm : unsigned(7 downto 0);
+    signal valor_imm_16 : unsigned (15 downto 0);
     signal sel_reg_lido_1  : unsigned (2 downto 0);
     signal sel_reg_lido_2  : unsigned (2 downto 0);
     signal sel_reg_escrito : unsigned(2 downto 0);
@@ -78,6 +81,10 @@ architecture a_processador of processador is
 
     signal reglido1 : unsigned(15 downto 0);
     signal reglido2 : unsigned(15 downto 0);
+
+    signal reglido1_17, reglido2_17, soma_17 : unsigned (16 downto 0);
+    signal carry_add, carry_sub : std_logic;
+    signal data : unsigned(15 downto 0);
 
     begin
 
@@ -87,8 +94,10 @@ architecture a_processador of processador is
             clk   => clk ,
             reset => reset,
             estado => state,
+            carry_add => carry_add,
+            carry_sub => carry_sub,
     
-            data_rom => data_rom,
+            data_rom => data,
             sel_reg_lido_1 => sel_reg_lido_1,
             sel_reg_lido_2  => sel_reg_lido_2,
             sel_reg_escrito => sel_reg_escrito,
@@ -96,7 +105,7 @@ architecture a_processador of processador is
             im_en => im_en,
             valor_imm => valor_imm
         );
-
+        data_rom <= data;
         estado <= state;
 
         ---------------------- EXECUTE ---------------------------
@@ -117,8 +126,16 @@ architecture a_processador of processador is
         reg_lido_2 <= reglido2;
         reg_lido_1 <= reglido1;
 
+        --         carry_sub <= '1' when data(15 downto 8) = "00101010" and reg_lido_1 = "0000000000000000"  else -- como usamos um acomulador o carry de subtração vai ser o MSB do acumulador
+        carry_sub <= reglido1(15) when data(15 downto 8) = "00101010"  else -- como usamos um acomulador o carry de subtração vai ser o MSB do acumulador
+                     '0';
+
+        valor_imm_16 <= "00000000" & valor_imm when valor_imm(7) = '0' else
+                        "11111111" & valor_imm when valor_imm(7) = '1' else
+                        "0000000000000000";
+
         entrada1 <= reglido2 when im_en = '0' else
-                    valor_imm when im_en = '1' else
+                    valor_imm_16 when im_en = '1' else
                     "0000000000000000";
         saida_ula <= escrita;
 

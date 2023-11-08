@@ -10,37 +10,38 @@ descrição: adiciona o valor referente ao registrador dos digitos 2 a 0 ao acum
 - ADD (imediato):
 prefix = 00 = 00000000
 opcode = AB = 10101011
-descrição: adiciona o valor imediato dos digitos 15 a 0 ao acumulador (convencionei como o r1)
+descrição: adiciona o valor imediato dos digitos 7 a 0 ao acumulador (convencionei como o r0)
 
 - SUB (registrador):
-prefix = 00 = 00000000
 opcode = F0 = 11110000
 descrição: subtrai o valor referente ao registrador dos digitos 2 a 0 ao acumulador (convencionei como o r1)
 
 - SUB (imediato):
-prefix = 00 = 00000000
 opcode = A0 = 10100000
-descrição: subtrai o valor imediato dos digitos 15 a 0 ao acumulador (convencionei como o r1)
+descrição: subtrai o valor imediato dos digitos 7 a 0 ao acumulador (convencionei como o r1)
 
 - LD (registrador):
-prefix = 00 = 00000000
 opcode = F6 = 11110110
 descrição: carrega o valor referente ao registrador dos digitos 2 a 0 no registrador dos digitos 5 a 3
 
 - CLR (registrador):
-prefix = 00 = 00000000
 opcode = 7F = 01111111
 descrição: zere o valor referente ao registrador dos digitos 2 a 0
 
 - JPF (memoria):
-prefix = 00 = 00000000
 opcode = AC = 10101100
 descrição: pula para o endereço da memória dos digitos 6 a 0
+
+- JRA (memoria):
+opcode = 20 = 00100000
+descrição: pula para o endereço de memória atual mais o valor carregado
+
+- JRPL (memoria):
+opcode = 2A = 00101010
+descrição: pula para o endereço da memória atual mais o valor carregado, caso o carry de subtreação seja 0 (caso o primeiro numero seja menor que o outro)
 
 - No arquivo rom.vhd (das linhas 17 a 40) estão descritas as etapas para executar o programa solicitado.
 - Os test_benches principais estão com suas ondas de visualização salvas em visualiza_processador.gtkw e visualiza_uc.gtkw
 
 - CORREÇÕES:
-reduzir os 32 bits para 16
 extensão de constante
-corrigir a sintaxe do assembly
