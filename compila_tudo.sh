@@ -1,6 +1,12 @@
 #!/bin/sh
 ghdl --remove
 
+ghdl -a flip_flop_D.vhd
+ghdl -e flip_flop_D
+
+ghdl -a flip_flop_D_tb.vhd
+ghdl -e flip_flop_D_tb
+
 ghdl -a ULA.vhd
 ghdl -e ULA
 

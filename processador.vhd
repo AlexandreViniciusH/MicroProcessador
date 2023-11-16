@@ -67,6 +67,16 @@ architecture a_processador of processador is
         );
     end component;
 
+    component flip_flop_D is
+       port(
+            clk             : in std_logic;
+            reset           : in std_logic;
+            D               : in std_logic;
+            Q               : out std_logic;
+            Q_barra         : out std_logic
+        );
+    end component;
+
     signal state : unsigned(1 downto 0);
     signal escrita : unsigned(15 downto 0);
     signal entrada1 : unsigned(15 downto 0);
@@ -86,6 +96,8 @@ architecture a_processador of processador is
     signal carry_add, carry_sub : std_logic;
     signal data : unsigned(15 downto 0);
 
+    signal D,Q,Q_barra : std_logic;
+
     begin
 
         ---------------------- FETCH/DECODE ---------------------------
@@ -95,7 +107,7 @@ architecture a_processador of processador is
             reset => reset,
             estado => state,
             carry_add => carry_add,
-            carry_sub => carry_sub,
+            carry_sub => Q,
     
             data_rom => data,
             sel_reg_lido_1 => sel_reg_lido_1,
@@ -126,8 +138,15 @@ architecture a_processador of processador is
         reg_lido_2 <= reglido2;
         reg_lido_1 <= reglido1;
 
-        --         carry_sub <= '1' when data(15 downto 8) = "00101010" and reg_lido_1 = "0000000000000000"  else -- como usamos um acomulador o carry de subtração vai ser o MSB do acumulador
-        carry_sub <= reglido1(15) when data(15 downto 8) = "00101010"  else -- como usamos um acomulador o carry de subtração vai ser o MSB do acumulador
+        flip_flop_carry_sub : flip_flop_D port map(
+            clk => clk,
+            reset => reset,
+            D => D,
+            Q => Q,
+            Q_barra => Q_barra
+        );
+
+        D <= reglido1(15) when data(15 downto 8) = "00101010"  else -- como usamos um acomulador o carry de subtração vai ser o MSB do acumulador
                      '0';
 
         valor_imm_16 <= "00000000" & valor_imm when valor_imm(7) = '0' else

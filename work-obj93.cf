@@ -1,37 +1,43 @@
 v 4
-file . "processador_tb.vhd" "f5c5dc94b0dd64bde38c5c88fe1a6da20ee32d28" "20231108163518.803":
-  entity processador_tb at 5( 200) + 0 on 33;
-  architecture a_processador_tb of processador_tb at 12( 301) + 0 on 34;
-file . "unidade_controle_tb.vhd" "2f38b48313f1f53b7684935af475a9c02472a843" "20231108163518.558":
-  entity unidade_controle_tb at 4( 199) + 0 on 29;
-  architecture a_unidade_controle_tb of unidade_controle_tb at 11( 312) + 0 on 30;
-file . "rom.vhd" "80ccee0aae27b4dde2e48517e5d95cbf686daeda" "20231108163518.418":
-  entity rom at 5( 200) + 0 on 25;
-  architecture a_rom of rom at 17( 445) + 0 on 26;
-file . "PC.vhd" "47a714463d21f87f38e24ee72d83e24ba7ac6b82" "20231108163518.290":
-  entity pc at 5( 200) + 0 on 21;
-  architecture a_pc of pc at 20( 523) + 0 on 22;
-file . "banco_registradores.vhd" "6a5193c430f38c86c72ed6184093eee77415d646" "20231108163518.157":
-  entity banco_registradores at 1( 0) + 0 on 17;
-  architecture a_banco_registradores of banco_registradores at 20( 562) + 0 on 18;
-file . "registrador7b.vhd" "6f7a0b1f49dac5890e8d041c536a772da67620da" "20231108163518.025":
-  entity registrador7b at 1( 0) + 0 on 13;
-  architecture a_registrador7b of registrador7b at 15( 306) + 0 on 14;
-file . "ULA.vhd" "0d7dbd0bee8cfd0bf46f6f59a84779dc6905c148" "20231108163517.963":
-  entity ula at 5( 200) + 0 on 11;
-  architecture a_ula of ula at 18( 572) + 0 on 12;
-file . "registrador8b.vhd" "8f35013d52d4c4ad868d6507b4c388c295d34c50" "20231108163518.093":
-  entity registrador8b at 1( 0) + 0 on 15;
-  architecture a_registrador8b of registrador8b at 15( 308) + 0 on 16;
-file . "maquina_estados.vhd" "5e374885a0fad8f1a67ae05502584ba388acd3eb" "20231108163518.227":
-  entity maquina_estados at 5( 204) + 0 on 19;
-  architecture a_maquina_estados of maquina_estados at 16( 436) + 0 on 20;
-file . "PC_tb.vhd" "67603b3e08649061d6c01cc8584872c0f5dd3a35" "20231108163518.354":
-  entity pc_tb at 5( 200) + 0 on 23;
-  architecture a_pc_tb of pc_tb at 12( 299) + 0 on 24;
-file . "unidade_controle.vhd" "8496458de673c47dcd007ea27f00417170160526" "20231108163518.482":
-  entity unidade_controle at 5( 200) + 0 on 27;
-  architecture a_unidade_controle of unidade_controle at 30( 880) + 0 on 28;
-file . "processador.vhd" "5fa3a35d6f3a8d24db916b85767cfe042e4c0b29" "20231108163518.708":
-  entity processador at 5( 200) + 0 on 31;
-  architecture a_processador of processador at 24( 673) + 0 on 32;
+file . "processador_tb.vhd" "f5c5dc94b0dd64bde38c5c88fe1a6da20ee32d28" "20231113182727.315":
+  entity processador_tb at 5( 200) + 0 on 37;
+  architecture a_processador_tb of processador_tb at 12( 301) + 0 on 38;
+file . "unidade_controle_tb.vhd" "2f38b48313f1f53b7684935af475a9c02472a843" "20231113182727.089":
+  entity unidade_controle_tb at 4( 199) + 0 on 33;
+  architecture a_unidade_controle_tb of unidade_controle_tb at 11( 312) + 0 on 34;
+file . "rom.vhd" "db41b14d79fc58aa22f22cc10289a9c095f83a7e" "20231113182726.958":
+  entity rom at 5( 200) + 0 on 29;
+  architecture a_rom of rom at 17( 445) + 0 on 30;
+file . "PC.vhd" "47a714463d21f87f38e24ee72d83e24ba7ac6b82" "20231113182726.834":
+  entity pc at 5( 200) + 0 on 25;
+  architecture a_pc of pc at 20( 523) + 0 on 26;
+file . "banco_registradores.vhd" "6a5193c430f38c86c72ed6184093eee77415d646" "20231113182726.709":
+  entity banco_registradores at 1( 0) + 0 on 21;
+  architecture a_banco_registradores of banco_registradores at 20( 562) + 0 on 22;
+file . "registrador7b.vhd" "6f7a0b1f49dac5890e8d041c536a772da67620da" "20231113182726.589":
+  entity registrador7b at 1( 0) + 0 on 17;
+  architecture a_registrador7b of registrador7b at 15( 306) + 0 on 18;
+file . "flip_flop_D_tb.vhd" "5a1209397185b5d48fe1d80cb1fde131b166c5c0" "20231113182726.468":
+  entity flip_flop_d_tb at 1( 0) + 0 on 13;
+  architecture a_flip_flop_d_tb of flip_flop_d_tb at 8( 108) + 0 on 14;
+file . "flip_flop_D.vhd" "93a36752cccf1901d162a403d880f83f7b2ea494" "20231113182726.409":
+  entity flip_flop_d at 1( 0) + 0 on 11;
+  architecture a_flip_flop_d of flip_flop_d at 16( 328) + 0 on 12;
+file . "ULA.vhd" "0d7dbd0bee8cfd0bf46f6f59a84779dc6905c148" "20231113182726.529":
+  entity ula at 5( 200) + 0 on 15;
+  architecture a_ula of ula at 18( 572) + 0 on 16;
+file . "registrador8b.vhd" "8f35013d52d4c4ad868d6507b4c388c295d34c50" "20231113182726.648":
+  entity registrador8b at 1( 0) + 0 on 19;
+  architecture a_registrador8b of registrador8b at 15( 308) + 0 on 20;
+file . "maquina_estados.vhd" "5e374885a0fad8f1a67ae05502584ba388acd3eb" "20231113182726.774":
+  entity maquina_estados at 5( 204) + 0 on 23;
+  architecture a_maquina_estados of maquina_estados at 16( 436) + 0 on 24;
+file . "PC_tb.vhd" "67603b3e08649061d6c01cc8584872c0f5dd3a35" "20231113182726.895":
+  entity pc_tb at 5( 200) + 0 on 27;
+  architecture a_pc_tb of pc_tb at 12( 299) + 0 on 28;
+file . "unidade_controle.vhd" "8496458de673c47dcd007ea27f00417170160526" "20231113182727.018":
+  entity unidade_controle at 5( 200) + 0 on 31;
+  architecture a_unidade_controle of unidade_controle at 30( 880) + 0 on 32;
+file . "processador.vhd" "6727a6613e30c1472169376c7c1dd0cf5d0c5d50" "20231113182727.233":
+  entity processador at 5( 200) + 0 on 35;
+  architecture a_processador of processador at 24( 673) + 0 on 36;
