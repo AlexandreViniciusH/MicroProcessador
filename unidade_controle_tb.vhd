@@ -26,7 +26,10 @@ architecture a_unidade_controle_tb of unidade_controle_tb is
         sel_reg_escrito : out unsigned(2 downto 0);
         sel_operacao    : out unsigned(1 downto 0);
         im_en           : out std_logic; 
-        valor_imm       : out unsigned (7 downto 0)
+        valor_imm       : out unsigned (7 downto 0);
+        read_ram : out std_logic;
+        we_ram : out std_logic;
+        endereco_ram : out unsigned (6 downto 0)
     );
     end component;
 

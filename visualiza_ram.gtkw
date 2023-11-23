@@ -1,0 +1,29 @@
+[*]
+[*] GTKWave Analyzer v3.3.104 (w)1999-2020 BSI
+[*] Thu Nov 23 14:04:05 2023
+[*]
+[dumpfile] "/home/lapti/Documents/Daniel/2023-2/ArqComp/MicroProcessador/ram_tb.ghw"
+[dumpfile_mtime] "Thu Nov 23 14:01:50 2023"
+[dumpfile_size] 8316
+[savefile] "/home/lapti/Documents/Daniel/2023-2/ArqComp/MicroProcessador/visualiza_ram.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-27.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.ram_tb.
+[treeopen] top.ram_tb.uut.
+[sst_width] 212
+[signals_width] 142
+[sst_expanded] 1
+[sst_vpaned_height] 148
+@22
+#{top.ram_tb.endereco[6:0]} top.ram_tb.endereco[6] top.ram_tb.endereco[5] top.ram_tb.endereco[4] top.ram_tb.endereco[3] top.ram_tb.endereco[2] top.ram_tb.endereco[1] top.ram_tb.endereco[0]
+#{top.ram_tb.dado_in[15:0]} top.ram_tb.dado_in[15] top.ram_tb.dado_in[14] top.ram_tb.dado_in[13] top.ram_tb.dado_in[12] top.ram_tb.dado_in[11] top.ram_tb.dado_in[10] top.ram_tb.dado_in[9] top.ram_tb.dado_in[8] top.ram_tb.dado_in[7] top.ram_tb.dado_in[6] top.ram_tb.dado_in[5] top.ram_tb.dado_in[4] top.ram_tb.dado_in[3] top.ram_tb.dado_in[2] top.ram_tb.dado_in[1] top.ram_tb.dado_in[0]
+#{top.ram_tb.dado_out[15:0]} top.ram_tb.dado_out[15] top.ram_tb.dado_out[14] top.ram_tb.dado_out[13] top.ram_tb.dado_out[12] top.ram_tb.dado_out[11] top.ram_tb.dado_out[10] top.ram_tb.dado_out[9] top.ram_tb.dado_out[8] top.ram_tb.dado_out[7] top.ram_tb.dado_out[6] top.ram_tb.dado_out[5] top.ram_tb.dado_out[4] top.ram_tb.dado_out[3] top.ram_tb.dado_out[2] top.ram_tb.dado_out[1] top.ram_tb.dado_out[0]
+@28
+top.ram_tb.clk
+@29
+top.ram_tb.uut.wr_en
+[pattern_trace] 1
+[pattern_trace] 0

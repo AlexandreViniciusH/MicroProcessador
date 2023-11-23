@@ -22,7 +22,10 @@ entity unidade_controle is
         sel_reg_escrito : out unsigned(2 downto 0);
         sel_operacao :    out unsigned(1 downto 0);
         im_en : out std_logic; 
-        valor_imm : out unsigned (7 downto 0)
+        valor_imm : out unsigned (7 downto 0);
+        read_ram : out std_logic;
+        we_ram : out std_logic;
+        endereco_ram : out unsigned (6 downto 0)
     );
 end entity;
 
@@ -64,7 +67,9 @@ architecture a_unidade_controle of unidade_controle is
            jrpl,
            add,
            addi,
-           ld,
+           ldre, -- ldw registrador endereço
+           lder, -- ldw endereço registrador
+           ldw, -- ldw registrador registrador
            clr,
            sub,
            subi : std_logic;
@@ -101,7 +106,9 @@ architecture a_unidade_controle of unidade_controle is
     addi <= '1' when opcode = "10101011" else '0';  -- ADD(acumulador, imm)
     sub <= '1' when opcode = "11110000" else '0';   -- SUB(acumulador, src)
     subi <= '1' when opcode = "10100000" else '0';  -- SUB(acumulador, imm)
-    ld <= '1' when opcode = "11110110" else '0';    -- LD(dst, src)
+    lder <= '1' when opcode = "10110111" else '0';  -- LD(endereço, acumulador)
+    ldre <= '1' when opcode = "10110110" else '0';  -- LD(acumulador, endereço)
+    ldw <= '1' when opcode = "11111111" else '0';  --  LDW(dst, src)
     clr <= '1' when opcode = "01111111" else '0';   -- CLR(dst)
     jpf <= '1' when opcode = "10101100" else '0';   -- JMP(endereco_jmp)
     jra <= '1' when opcode = "00100000" else '0';   -- JRA (dst)
@@ -117,28 +124,39 @@ architecture a_unidade_controle of unidade_controle is
             '0';
 
     -- registrador acumulador eu defini sendo o 001
-    sel_reg_lido_1 <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' or jrpl = '1'  else
-                      dado(2 downto 0) when ld = '1' else -- src do ld
+    sel_reg_lido_1 <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' or jrpl = '1' or lder = '1' else
+                      dado(2 downto 0) when ldw = '1' else -- src do ld
                       "000" when clr = '1' else -- no fim o clear é dst <= 0 + 0
                       "000";
     sel_reg_lido_2 <= dado(2 downto 0) when add = '1' or sub = '1' else -- src do sub
                       "000";
 
-    sel_reg_escrito <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' else  -- todos os dst são o acumulador
-                       dado(5 downto 3) when ld = '1' else -- dst do ld
+    sel_reg_escrito <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' or ldre = '1' else  -- todos os dst são o acumulador
+                       dado(5 downto 3) when ldw = '1' else -- dst do ld
                        dado(2 downto 0) when clr = '1' else -- dst do clear
                        "000";
     
     valor_imm <= dado(7 downto 0) when addi = '1' or subi = '1' else
                "00000000";
 
+    endereco_ram <= dado(6 downto 0) when lder = '1' or ldre = '1' else
+                    "0000000";
+
     -- habilita ou não o uso de valor imediato
     im_en <= '0' when add = '1' or sub = '1' else
-             '1' when addi = '1' or subi = '1' or ld = '1' or clr = '1' else
+             '1' when addi = '1' or subi = '1' or ldw = '1' or lder = '1' or ldre = '1' or clr = '1' else
              '0';
 
+    -- habilita se o registrador 2 selecionado é ponteiro ou não
+    read_ram <= '1' when ldre = '1' else
+                '0';
+
+    -- habilita se o acumulador será selecionado para carregar na ram
+    we_ram <= '1' when lder = '1' else
+              '0';
+
     -- seleciona se a operação é adição ou subtração para a ula realizar
-    sel_operacao <= "00" when add = '1' or addi = '1' or ld = '1' or clr = '1' else
+    sel_operacao <= "00" when add = '1' or addi = '1' or ldw = '1' or ldre = '1' or lder = '1' or clr = '1' else
                     "01" when sub = '1' or subi = '1' else
                     "00";
 

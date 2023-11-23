@@ -10,7 +10,7 @@ descrição: adiciona o valor referente ao registrador dos digitos 2 a 0 ao acum
 - ADD (imediato):
 prefix = 00 = 00000000
 opcode = AB = 10101011
-descrição: adiciona o valor imediato dos digitos 7 a 0 ao acumulador (convencionei como o r0)
+descrição: adiciona o valor imediato dos digitos 7 a 0 ao acumulador (convencionei como o r1)
 
 - SUB (registrador):
 opcode = F0 = 11110000
@@ -20,9 +20,18 @@ descrição: subtrai o valor referente ao registrador dos digitos 2 a 0 ao acumu
 opcode = A0 = 10100000
 descrição: subtrai o valor imediato dos digitos 7 a 0 ao acumulador (convencionei como o r1)
 
-- LD (registrador):
-opcode = F6 = 11110110
+- LD (acumulador, endereço):
+opcode = B6 = 10110110
+descrição: carrega o valor referente ao endereço da ram no registrador acumulador
+
+- LD (endereço, acumulador):
+opcode = B7 = 10110111
+descrição: carrega o valor referente ao registrador acumulador no endereço de memória especificado
+
+- LDW (registrador, registrador):
+opcode = F6 = 11111111
 descrição: carrega o valor referente ao registrador dos digitos 2 a 0 no registrador dos digitos 5 a 3
+
 
 - CLR (registrador):
 opcode = 7F = 01111111
