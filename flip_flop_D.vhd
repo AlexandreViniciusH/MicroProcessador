@@ -7,9 +7,9 @@ entity flip_flop_D is
     (
         clk             : in std_logic;
         reset           : in std_logic;
+        we              : in std_logic;
         D               : in std_logic;
-        Q               : out std_logic;
-        Q_barra         : out std_logic
+        Q               : out std_logic
     );
 end entity;
 
@@ -19,10 +19,10 @@ architecture a_flip_flop_D of flip_flop_D is
     begin
         if reset='1' then
             Q <= '1';
-            Q_barra <= '0';
-        elsif rising_edge(clk) then
-            Q <= D;
-            Q_barra <= not D;
+        elsif we = '1' then
+            if rising_edge(clk) then
+                Q <= D;
+            end if;
         end if;
     end process;
 end architecture;

@@ -11,17 +11,17 @@ architecture a_flip_flop_D_tb of flip_flop_D_tb is
             (
                 clk             : in std_logic;
                 reset           : in std_logic;
+                we              : in std_logic;
                 D               : in std_logic;
-                Q               : out std_logic;
-                Q_barra         : out std_logic
+                Q               : out std_logic
             );
     end component;
 
     constant period_time : time      := 100 ns;
     signal   finished    : std_logic := '0';
     signal   clk : std_logic;
-    signal   reset  : std_logic;
-    signal   D, Q, Q_barra : std_logic;
+    signal   reset, we : std_logic;
+    signal   D, Q : std_logic;
 
     begin
 
@@ -29,9 +29,9 @@ architecture a_flip_flop_D_tb of flip_flop_D_tb is
     (
         clk => clk,
         reset => reset,
+        we => we,
         D => D,
-        Q => Q,
-        Q_barra => Q_barra
+        Q => Q
     );
 
     reset_global: process
@@ -66,6 +66,7 @@ architecture a_flip_flop_D_tb of flip_flop_D_tb is
 
     wait for 200 ns;
 
+    we <= '1';
     D <= '1';
     wait for period_time;
 

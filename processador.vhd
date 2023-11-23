@@ -29,8 +29,8 @@ architecture a_processador of processador is
             wr_en    : in std_logic;
             clk      : in std_logic;
             reset    : in std_logic;
-            carry_add : in std_logic;
-            carry_sub : in std_logic;
+            carry : in std_logic;
+            zero : in std_logic;
 
             estado   : out unsigned (1 downto 0);
             data_rom : out unsigned (15 downto 0);
@@ -66,7 +66,8 @@ architecture a_processador of processador is
             entrada0 : in unsigned (15 downto 0); -- primeiro operando
             entrada1 : in unsigned (15 downto 0); -- segundo operando
             sel : in unsigned (1 downto 0); -- operação selecionada
-            saida : out unsigned (15 downto 0)
+            saida : out unsigned (15 downto 0);
+            carry : out std_logic
         );
     end component;
 
@@ -74,9 +75,9 @@ architecture a_processador of processador is
        port(
             clk             : in std_logic;
             reset           : in std_logic;
+            we              : in std_logic;
             D               : in std_logic;
-            Q               : out std_logic;
-            Q_barra         : out std_logic
+            Q               : out std_logic
         );
     end component;
 
@@ -109,10 +110,11 @@ architecture a_processador of processador is
     signal valor_ram : unsigned(15 downto 0);
 
     signal reglido1_17, reglido2_17, soma_17 : unsigned (16 downto 0);
-    signal carry_add, carry_sub : std_logic;
+    signal carry, zero: std_logic;
+    signal carry_uc, zero_uc: std_logic;
     signal data : unsigned(15 downto 0);
 
-    signal D,Q,Q_barra : std_logic;
+    signal D,Q: std_logic;
 
     begin
 
@@ -122,8 +124,8 @@ architecture a_processador of processador is
             clk   => clk ,
             reset => reset,
             estado => state,
-            carry_add => carry_add,
-            carry_sub => Q,
+            carry => carry_uc,
+            zero => zero_uc,
     
             data_rom => data,
             sel_reg_lido_1 => sel_reg_lido_1,
@@ -157,15 +159,23 @@ architecture a_processador of processador is
         reg_lido_2 <= reglido2;
         reg_lido_1 <= reglido1;
 
-        D <= reglido1(15) when data(15 downto 8) = "00101010"  else -- como usamos um acomulador o carry de subtração vai ser o MSB do acumulador
-                     '0';
+        -- D <= reglido1(15) when data(15 downto 8) = "00101010"  else -- como usamos um acomulador o carry de subtração vai ser o MSB do acumulador
+        --              '0';
 
-        flip_flop_carry_sub : flip_flop_D port map(
+        carry_flag : flip_flop_D port map(
             clk => clk,
             reset => reset,
-            D => D,
-            Q => Q,
-            Q_barra => Q_barra
+            we => w_e,
+            D => zero,
+            Q => carry_uc
+        );
+
+        zero_flag : flip_flop_D port map(
+            clk => clk,
+            reset => reset,
+            we => w_e,
+            D => carry,
+            Q => zero_uc
         );
 
         leitura_ram : ram port map(
@@ -188,11 +198,14 @@ architecture a_processador of processador is
                     "0000000000000000";
         saida_ula <= escrita;
 
+        zero <= '1' when escrita = "0000000000000000";
+
         ligacoes_ula: ULA port map (
             entrada0 => entrada0,
             entrada1 => entrada1,
             sel => sel_operacao,
-            saida => escrita
+            saida => escrita,
+            carry => carry
         );
 
 end architecture;

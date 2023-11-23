@@ -12,8 +12,8 @@ entity unidade_controle is
         wr_en    : in std_logic;
         clk      : in std_logic;
         reset    : in std_logic;
-        carry_add : in std_logic;
-        carry_sub : in std_logic;
+        carry : in std_logic;
+        zero : in std_logic;
 
         estado   : out unsigned (1 downto 0);
         data_rom : out unsigned (15 downto 0);
@@ -139,11 +139,13 @@ architecture a_unidade_controle of unidade_controle is
 
     endereco_jmp <= dado(6 downto 0) when jpf = '1' else
                     endereco_lido + dado(6 downto 0) when jra = '1' else
-                    endereco_lido + dado(6 downto 0) when jrpl = '1' and carry_sub = '0' else
-                    endereco_lido + 1 when jrpl = '1' and carry_sub = '1' else
+                    endereco_lido + dado(6 downto 0) when jrc = '1' and carry = '1' else
+                    endereco_lido + dado(6 downto 0) when jreq = '1' and zero = '1' else
+                    -- endereco_lido + dado(6 downto 0) when jrpl = '1' and carry = '0' else
+                    -- endereco_lido + 1 when jrpl = '1' and carry_sub = '1' else
                     "0000000";
 
-    jmp <=  '1' when jpf = '1' or jra = '1' or jrpl = '1' else
+    jmp <=  '1' when jpf = '1' or jra = '1' or jrpl = '1' or jrc = '1' or jreq = '1' else
             '0';
 
     -- Acumulador: 001
