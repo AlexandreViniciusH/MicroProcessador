@@ -47,7 +47,7 @@ architecture a_rom of rom is
     22 => "1111111100011001", -- LDW (r3),A
     23 => "0111111100000001", -- CLR A
     -- Carrega o acumulador com o valor do endereço 30 e carrega esse valor no registrador r4
-    24 => "1011011000011110", -- LD A,$30
+    24 => "1011011001111111", -- LD A,$127
     25 => "1111111100100001", -- LDW (r4),A
     26 => "0111111100000001", -- CLR A
     -- Carrega o valor 84 no acumulador e armazena no endereço 100
