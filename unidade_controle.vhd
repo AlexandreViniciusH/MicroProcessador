@@ -65,11 +65,15 @@ architecture a_unidade_controle of unidade_controle is
            jpf,
            jra,
            jrpl,
+           jrc,
+           jreq,
            add,
            addi,
+           ld,
            ldre, -- ldw registrador endereço
            lder, -- ldw endereço registrador
            ldw, -- ldw registrador registrador
+           clrA,
            clr,
            sub,
            subi : std_logic;
@@ -102,17 +106,36 @@ architecture a_unidade_controle of unidade_controle is
     --prefix <= dado(31 downto 24) when state = "01"; -- na documentação é um hexadecimal de 2 digitos, nas instruções abaixo equivale a 00(16)
     opcode <= dado(15 downto 8) when state = "01";
 
-    add <= '1' when opcode = "11111011" else '0';   -- ADD(acumulador, src)
-    addi <= '1' when opcode = "10101011" else '0';  -- ADD(acumulador, imm)
-    sub <= '1' when opcode = "11110000" else '0';   -- SUB(acumulador, src)
-    subi <= '1' when opcode = "10100000" else '0';  -- SUB(acumulador, imm)
-    lder <= '1' when opcode = "10110111" else '0';  -- LD(endereço, acumulador)
-    ldre <= '1' when opcode = "10110110" else '0';  -- LD(acumulador, endereço)
-    ldw <= '1' when opcode = "11111111" else '0';  --  LDW(dst, src)
-    clr <= '1' when opcode = "01111111" else '0';   -- CLR(dst)
-    jpf <= '1' when opcode = "10101100" else '0';   -- JMP(endereco_jmp)
-    jra <= '1' when opcode = "00100000" else '0';   -- JRA (dst)
-    jrpl <= '1' when opcode = "00101010" else '0';  -- JRPL (dst)
+    -- ADD A,(X)
+    add <= '1' when opcode = "11111011" else '0';
+    -- ADD A,#$byte
+    addi <= '1' when opcode = "10101011" else '0';  
+    -- SUB A,(X)
+    sub <= '1' when opcode = "11110000" else '0';   
+    -- SUB A,(#byte)
+    subi <= '1' when opcode = "10100000" else '0';  
+    -- LD A,(X)
+    ld <= '1' when opcode = "11110110" else '0';    
+    -- LD ($50),A
+    lder <= '1' when opcode = "10110111" else '0';  
+    -- LD A,($50)
+    ldre <= '1' when opcode = "10110110" else '0';  
+    --  LDW (X),Y
+    ldw <= '1' when opcode = "11111111" else '0';  
+    -- CLR A
+    clrA <= '1' when opcode = "01001111" else '0';   
+    -- CLR (X)
+    clr <= '1' when opcode = "01111111" else '0';   
+    -- JPF $2FFFFC
+    jpf <= '1' when opcode = "10101100" else '0';   
+    -- JRA $2B
+    jra <= '1' when opcode = "00100000" else '0';   
+    -- JRPL $15 
+    jrpl <= '1' when opcode = "00101010" else '0'; -- OBSOLETO
+    -- JRC $15
+    jrc <= '1' when opcode = "00100101" else '0';  
+    -- JREQ $15
+    jreq <= '1' when opcode = "00100111" else '0';  
 
     endereco_jmp <= dado(6 downto 0) when jpf = '1' else
                     endereco_lido + dado(6 downto 0) when jra = '1' else
@@ -123,17 +146,17 @@ architecture a_unidade_controle of unidade_controle is
     jmp <=  '1' when jpf = '1' or jra = '1' or jrpl = '1' else
             '0';
 
-    -- registrador acumulador eu defini sendo o 001
+    -- Acumulador: 001
     sel_reg_lido_1 <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' or jrpl = '1' or lder = '1' else
-                      dado(2 downto 0) when ldw = '1' else -- src do ld
-                      "000" when clr = '1' else -- no fim o clear é dst <= 0 + 0
+                      dado(2 downto 0) when ldw = '1' or ld = '1' else -- src do ld
+                      "000" when clr = '1' or clrA = '1' else -- no fim o clear é dst <= 0 + 0
                       "000";
     sel_reg_lido_2 <= dado(2 downto 0) when add = '1' or sub = '1' else -- src do sub
                       "000";
 
-    sel_reg_escrito <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' or ldre = '1' else  -- todos os dst são o acumulador
+    sel_reg_escrito <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' or ldre = '1' or ld = '1' else  -- todos os dst são o acumulador
                        dado(5 downto 3) when ldw = '1' else -- dst do ld
-                       dado(2 downto 0) when clr = '1' else -- dst do clear
+                       dado(2 downto 0) when clr = '1' or clrA = '1' else -- dst do clear
                        "000";
     
     valor_imm <= dado(7 downto 0) when addi = '1' or subi = '1' else
@@ -144,7 +167,7 @@ architecture a_unidade_controle of unidade_controle is
 
     -- habilita ou não o uso de valor imediato
     im_en <= '0' when add = '1' or sub = '1' else
-             '1' when addi = '1' or subi = '1' or ldw = '1' or lder = '1' or ldre = '1' or clr = '1' else
+             '1' when addi = '1' or subi = '1' or ldw = '1' or lder = '1' or ldre = '1' or ld = '1' or clr = '1' or clrA = '1' else
              '0';
 
     -- habilita se o registrador 2 selecionado é ponteiro ou não
@@ -156,7 +179,7 @@ architecture a_unidade_controle of unidade_controle is
               '0';
 
     -- seleciona se a operação é adição ou subtração para a ula realizar
-    sel_operacao <= "00" when add = '1' or addi = '1' or ldw = '1' or ldre = '1' or lder = '1' or clr = '1' else
+    sel_operacao <= "00" when add = '1' or addi = '1' or ldw = '1' or ldre = '1' or lder = '1' or ld = '1' or clr = '1' else
                     "01" when sub = '1' or subi = '1' else
                     "00";
 

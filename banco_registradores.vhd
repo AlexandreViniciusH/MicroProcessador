@@ -29,111 +29,111 @@ architecture a_banco_registradores of banco_registradores is
     end component;
     
     signal lido_zero, 
-           lido_x1, 
-           lido_x2,
-           lido_x3,
-           lido_x4,
-           lido_x5,
-           lido_x6,
-           lido_x7: unsigned(15 downto 0);
-    signal wr_en_x0,
-           wr_en_x1,
-           wr_en_x2,
-           wr_en_x3,
-           wr_en_x4,
-           wr_en_x5,
-           wr_en_x6,
-           wr_en_x7,
+           lido_A, 
+           lido_X1,
+           lido_X2,
+           lido_X3,
+           lido_X4,
+           lido_X5,
+           lido_X6: unsigned(15 downto 0);
+    signal wr_en_zero,
+           wr_en_A,
+           wr_en_X1,
+           wr_en_X2,
+           wr_en_X3,
+           wr_en_X4,
+           wr_en_X5,
+           wr_en_X6,
            rst :std_logic;
 
     begin
 
-        wr_en_x0 <= '0'   when sel_reg_escrito = "000" else '0';
-        wr_en_x1 <= wr_en when sel_reg_escrito = "001" else '0';
-        wr_en_x2 <= wr_en when sel_reg_escrito = "010" else '0';
-        wr_en_x3 <= wr_en when sel_reg_escrito = "011" else '0';
-        wr_en_x4 <= wr_en when sel_reg_escrito = "100" else '0';
-        wr_en_x5 <= wr_en when sel_reg_escrito = "101" else '0';
-        wr_en_x6 <= wr_en when sel_reg_escrito = "110" else '0';
-        wr_en_x7 <= wr_en when sel_reg_escrito = "111" else '0';
+        wr_en_zero <= '0'   when sel_reg_escrito = "000" else '0';
+        wr_en_A <= wr_en when sel_reg_escrito = "001" else '0';
+        wr_en_X1 <= wr_en when sel_reg_escrito = "010" else '0';
+        wr_en_X2 <= wr_en when sel_reg_escrito = "011" else '0';
+        wr_en_X3 <= wr_en when sel_reg_escrito = "100" else '0';
+        wr_en_X4 <= wr_en when sel_reg_escrito = "101" else '0';
+        wr_en_X5 <= wr_en when sel_reg_escrito = "110" else '0';
+        wr_en_X6 <= wr_en when sel_reg_escrito = "111" else '0';
 
         rst <= '1' when reset = '1' else '0';
 
         zero: registrador8b port map(
             clk => clk, 
             reset => rst, 
-            wr_en => wr_en_x0, 
+            wr_en => wr_en_zero, 
             data_in => escrita, 
             data_out => lido_zero
         );
-        x1: registrador8b port map(
+        A: registrador8b port map(
             clk => clk, 
             reset => rst, 
-            wr_en => wr_en_x1, 
+            wr_en => wr_en_A, 
             data_in => escrita, 
-            data_out => lido_x1
+            data_out => lido_A
         );
-        x2: registrador8b port map(
+        X1: registrador8b port map(
             clk => clk, 
             reset => rst, 
-            wr_en => wr_en_x2, 
+            wr_en => wr_en_X1, 
             data_in => escrita, 
-            data_out => lido_x2
+            data_out => lido_X1
         );
-        x3: registrador8b port map(
+        X2: registrador8b port map(
             clk => clk, 
             reset => rst, 
-            wr_en => wr_en_x3, 
+            wr_en => wr_en_X2, 
             data_in => escrita, 
-            data_out => lido_x3
+            data_out => lido_X2
         );
-        x4: registrador8b port map(
+        X3: registrador8b port map(
             clk => clk, 
             reset => rst, 
-            wr_en => wr_en_x4, 
+            wr_en => wr_en_X3, 
             data_in => escrita, 
-            data_out => lido_x4
+            data_out => lido_X3
         );
-        x5: registrador8b port map(
+        X4: registrador8b port map(
             clk => clk, 
             reset => rst, 
-            wr_en => wr_en_x5, 
+            wr_en => wr_en_X4, 
             data_in => escrita, 
-            data_out => lido_x5
+            data_out => lido_X4
         );
-        x6: registrador8b port map(
+        X5: registrador8b port map(
             clk => clk, 
             reset => rst, 
-            wr_en => wr_en_x6, 
+            wr_en => wr_en_X5, 
             data_in => escrita, 
-            data_out => lido_x6
+            data_out => lido_X5
         );
-        x7: registrador8b port map(
+        X6: registrador8b port map(
             clk => clk, 
             reset => rst, 
-            wr_en => wr_en_x7, 
+            wr_en => wr_en_X6, 
             data_in => escrita, 
-            data_out => lido_x7
+            data_out => lido_X6
         );
         
         reg_lido_1 <= lido_zero when sel_reg_lido_1 ="000" else
-                        lido_x1 when sel_reg_lido_1 ="001" else
-                        lido_x2 when sel_reg_lido_1 ="010" else
-                        lido_x3 when sel_reg_lido_1 ="011" else
-                        lido_x4 when sel_reg_lido_1 ="100" else
-                        lido_x5 when sel_reg_lido_1 ="101" else
-                        lido_x6 when sel_reg_lido_1 ="110" else
-                        lido_x7 when sel_reg_lido_1 ="111" else
+                        lido_A when sel_reg_lido_1 ="001" else
+                        lido_X1 when sel_reg_lido_1 ="010" else
+                        lido_X2 when sel_reg_lido_1 ="011" else
+                        lido_X3 when sel_reg_lido_1 ="100" else
+                        lido_X4 when sel_reg_lido_1 ="101" else
+                        lido_X5 when sel_reg_lido_1 ="110" else
+                        lido_X6 when sel_reg_lido_1 ="111" else
                         "0000000000000000";
 
         reg_lido_2 <= lido_zero when sel_reg_lido_2 ="000" else
-                        lido_x1 when sel_reg_lido_2 ="001" else
-                        lido_x2 when sel_reg_lido_2 ="010" else
-                        lido_x3 when sel_reg_lido_2 ="011" else
-                        lido_x4 when sel_reg_lido_2 ="100" else
-                        lido_x5 when sel_reg_lido_2 ="101" else
-                        lido_x6 when sel_reg_lido_2 ="110" else
-                        lido_x7 when sel_reg_lido_2 ="111" else
+                        lido_A when sel_reg_lido_2 ="001" else
+                        lido_X1 when sel_reg_lido_2 ="010" else
+                        lido_X2 when sel_reg_lido_2 ="011" else
+                        lido_X3 when sel_reg_lido_2 ="100" else
+                        lido_X4 when sel_reg_lido_2 ="101" else
+                        lido_X5 when sel_reg_lido_2 ="110" else
+                        lido_X6 when sel_reg_lido_2 ="111" else
                         "0000000000000000";
 
 end architecture;
