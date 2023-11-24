@@ -100,7 +100,7 @@ architecture a_processador of processador is
     
     signal im_en, w_e, read_ram, we_ram: std_logic;
     signal valor_imm : unsigned(7 downto 0);
-    signal endereco_ram : unsigned(6 downto 0);
+    signal endereco_ram_uc, endereco_ram : unsigned(6 downto 0);
     signal valor_imm_16 : unsigned (15 downto 0);
     signal sel_reg_lido_1  : unsigned (2 downto 0);
     signal sel_reg_lido_2  : unsigned (2 downto 0);
@@ -138,7 +138,7 @@ architecture a_processador of processador is
             valor_imm => valor_imm,
             read_ram => read_ram,
             we_ram => we_ram,
-            endereco_ram => endereco_ram
+            endereco_ram => endereco_ram_uc
         );
         data_rom <= data;
         estado <= state;
@@ -192,15 +192,20 @@ architecture a_processador of processador is
                         "11111111" & valor_imm when valor_imm(7) = '1' else
                         "0000000000000000";
 
+        endereco_ram <= endereco_ram_uc + reglido2(6 downto 0) when we_ram = '1' and im_en = '0' and read_ram = '0' else 
+                        endereco_ram_uc + reglido2(6 downto 0) when we_ram = '0' and im_en = '0' and read_ram = '1' else
+                        endereco_ram_uc; -- não coloquei else "0000000" pois na uc ja tem
+
         entrada0 <= reglido1 when read_ram = '0' else
                     valor_ram when read_ram = '1' else
                     "0000000000000000";
-        entrada1 <= reglido2 when im_en = '0' else
+        entrada1 <= reglido2 when im_en = '0' and we_ram = '0' and read_ram = '0' else
                     valor_imm_16 when im_en = '1' else
                     "0000000000000000";
         saida_ula <= escrita;
 
-        zero <= '1' when escrita = "0000000000000000";
+        zero <= '1' when escrita = "0000000000000000" else
+                '0';
 
         ligacoes_ula: ULA port map (
             entrada0 => entrada0,

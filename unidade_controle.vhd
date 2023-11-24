@@ -70,9 +70,11 @@ architecture a_unidade_controle of unidade_controle is
            add,
            addi,
            ld,
-           ldre, -- ldw registrador endereço
-           lder, -- ldw endereço registrador
-           ldw, -- ldw registrador registrador
+           ldre, -- ld registrador endereço
+           lder, -- ld endereço registrador
+           ldpa,  -- ld ponteiro endereço + valor registrador
+           ldp,  -- ld ponteiro endereço + valor registrador
+           ldw,  --  ldw registrador registrador
            clrA,
            clr,
            sub,
@@ -119,7 +121,11 @@ architecture a_unidade_controle of unidade_controle is
     -- LD ($50),A
     lder <= '1' when opcode = "10110111" else '0';  
     -- LD A,($50)
-    ldre <= '1' when opcode = "10110110" else '0';  
+    ldre <= '1' when opcode = "10110110" else '0';
+    -- LD A,($50,X)
+    ldpa <= '1' when opcode = "11100110" else '0';
+    -- LD ($50,X),A
+    ldp <= '1' when opcode = "11100111" else '0';
     --  LDW (X),Y
     ldw <= '1' when opcode = "11111111" else '0';  
     -- CLR A
@@ -150,15 +156,16 @@ architecture a_unidade_controle of unidade_controle is
             '1' when jreq = '1' and zero = '1' else
             '0';
 
-    -- Acumulador: 001
-    sel_reg_lido_1 <= "111" when add = '1' or addi = '1' or sub = '1' or subi = '1' or jrpl = '1' or ld = '1' or  lder = '1' else
+    -- Acumulador: 111
+    sel_reg_lido_1 <= "111" when add = '1' or addi = '1' or sub = '1' or subi = '1' or jrpl = '1' or ld = '1' or  lder = '1' or ldp = '1' else
                       dado(2 downto 0) when ldw = '1' else -- src do ld
                       "000" when clr = '1' or clrA = '1' else -- no fim o clear é dst <= 0 + 0
                       "000";
     sel_reg_lido_2 <= dado(2 downto 0) when add = '1' or sub = '1' else -- src do sub
+                      "001" when ldp = '1' or ldpa = '1' else
                       "000";
 
-    sel_reg_escrito <= "111" when add = '1' or addi = '1' or sub = '1' or subi = '1' or ldre = '1' or clrA = '1' else 
+    sel_reg_escrito <= "111" when add = '1' or addi = '1' or sub = '1' or subi = '1' or ldre = '1' or ldpa = '1' or clrA = '1' else 
                        dado(5 downto 3) when ldw = '1' else 
                        dado(2 downto 0) when clr = '1' or ld = '1' else 
                        "000";
@@ -166,20 +173,20 @@ architecture a_unidade_controle of unidade_controle is
     valor_imm <= dado(7 downto 0) when addi = '1' or subi = '1' else
                "00000000";
 
-    endereco_ram <= dado(6 downto 0) when lder = '1' or ldre = '1' else
+    endereco_ram <= dado(6 downto 0) when lder = '1' or ldre = '1' or ldpa = '1' else
                     "0000000";
 
     -- habilita ou não o uso de valor imediato
-    im_en <= '0' when add = '1' or sub = '1' else
+    im_en <= '0' when add = '1' or sub = '1' or ldp = '1' else
              '1' when addi = '1' or subi = '1' or ldw = '1' or lder = '1' or ldre = '1' or ld = '1' or clr = '1' or clrA = '1' else
              '0';
 
-    -- habilita se o registrador 2 selecionado é ponteiro ou não
-    read_ram <= '1' when ldre = '1' else
+    -- habilita se o registrador selecionado vai ser carregado da ram
+    read_ram <= '1' when ldre = '1' or ldpa = '1' else
                 '0';
 
     -- habilita se o acumulador será selecionado para carregar na ram
-    we_ram <= '1' when lder = '1' else
+    we_ram <= '1' when lder = '1' or ldp = '1' else
               '0';
 
     -- seleciona se a operação é adição ou subtração para a ula realizar

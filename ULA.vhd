@@ -36,7 +36,7 @@ begin
                 "0000000000000000";
     
     carry <= '1' when soma(16) = '1' and sel = "00" else
-             '1' when entrada0 <= entrada1 and sel = "01" else
+             '1' when entrada0 < entrada1 and sel = "01" else
              '0';
 
     -- foi avisado em sala de aula que não precisava ser mais obrigatório comparação

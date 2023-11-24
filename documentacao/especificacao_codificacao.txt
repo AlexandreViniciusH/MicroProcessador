@@ -41,7 +41,17 @@ descrição: carrega o valor do acumulador no endereço de memória especificado
 
 - LD (X),A: pág 115.
 opcode = F7 = 11110111.
-descrição: carrega o valor do acumulador no endereço de memória especificado.
+descrição: carrega o valor do acumulador no registrador especificado.
+
+- LD A,($endereço,X): pág 114
+opcode = E6 = 11100110.
+descrição: carrega o valor do endereço + valor de X no acumulador. 
+observação: como originalmente existem apenas os registradores X e Y, para poder colocar o valor completo do endereço, convencionei como X1 o registrador a ser lido.
+
+- LD ($endereço,X),A: pág 115.
+opcode = E7 = 11100111.
+descrição: carrega o acumulador no endereço + valor do registrador X. 
+observação: como originalmente existem apenas os registradores X e Y, para poder colocar o valor completo do endereço, convencionei como X1 o registrador a ser lido.
 
 - LDW (X),X': pág 117.
 opcode = FF = 11111111.
