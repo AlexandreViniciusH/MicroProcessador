@@ -35,7 +35,7 @@ descrição: subtrai o valor imediato dos digitos 7 a 0 do acumulador.
 opcode = B6 = 10110110.
 descrição: carrega o valor do endereço da ram no acumulador.
 
-- LD $endereço,A: pág 114.
+- LD $endereço,A: pág 115.
 opcode = B7 = 10110111.
 descrição: carrega o valor do acumulador no endereço de memória especificado.
 

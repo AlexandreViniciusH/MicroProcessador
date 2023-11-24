@@ -1,0 +1,95 @@
+-- ARQUITETURA E ORGANIZAÇÃO DE COMPUTADORES | LAB#final      --
+-- Professor Juliano Mourão Vieira | UTFPR | 2023.2           -- 
+-- Daniel Augusto Pires de Castro | Alexandre Vinicius Hubert --
+
+    -- >> Para mais detalhes com os binários das instruções, verificar em rom.vhd
+    -- >> Para visualizar as formas de onda, usar o arquivo visualiza_processador_entrega_final.gtkw
+
+    -- 1. Coloque na memória RAM, com um loop em assembly, os números de interesse do 1 até o 32
+    -- >> Soma 1 em X1 
+    CLR A
+    ADD A,#$1
+    ADD A,(X1)
+    LD (X1),A
+    -- >> Carrega o valor de A no endereço 0 + X1
+    LD ($0,X1),A
+    CLR A
+    -- >> Se X1<32 salta para instrução 0
+    ADD A,(X1)
+    SUB A,#$32
+    JRC #$-8
+    -- >> Limpa Registradores
+    CLR (X1)
+    CLR A
+
+    -- 2. Elimine da lista, com um loop,  todos os múltiplos de 2.
+    -- 3. Idem para 3 e 5.
+    -- 4. Seria decente seguir o algoritmo completo (“tente” eliminar todos os não primos, como os múltiplos de 7, 11 e etc.), então faça isso se der.
+    -- >> Primo inicial para conferir: 2
+    ADD A,#$2
+    ADD A,(X2)
+    LD (X2),A
+    -- >> Soma X2 em X1 (antes do loop para não eliminar o 2)
+    CLR A
+    ADD A,(X2)
+    ADD A,(X1)
+    LD (X1),A
+    -- >> Soma X2 em X1 (dentro do loop)
+    CLR A
+    ADD A,(X2)
+    ADD A,(X1)
+    LD (X1),A
+    -- >> Carrega 0 no endereço 0 + X1
+    CLR A
+    LD ($0,X1),A
+    -- >> Se X1<32 salta para instrução 18
+    ADD A,(X1)
+    SUB A,#$32
+    JRC #$-8
+    -- >> Limpa e soma o X1 com o X2 que tem o primo atual
+    CLR (X1)
+    CLR A
+    ADD A,(X2)
+    ADD A,(X1)
+    LD (X1),A
+    -- >> Soma 1 em X1 
+    CLR A
+    ADD A,#$1
+    ADD A,(X1)
+    LD (X1),A
+    -- >> Carrega o valor do endereço 0 + X1 em A, se esse valor é igual a 0, pula para a instrução 32
+    LD A,($0,X1)
+    SUB A,#$00
+    JREQ #$-6
+    -- >> Se o valor não for igual a 0, carrega A em X2
+    CLR (X1)
+    LD (X2),A
+    -- >> Se X2 < 32 pula para a instrução 14
+    SUB A,#$32
+    JRC #$-28
+
+    -- 5. Faça um loop para ler a RAM do endereço 2 ao 32.
+    -- >> Foi feito usando X2 para leitura da RAM
+    CLR (X1)
+    CLR (X2)
+    CLR A
+    ADD A,#$2
+    LD (X1),A
+    -- >> Soma 1 em X1 
+    CLR A
+    ADD A,#$1
+    ADD A,(X1)
+    LD (X1),A
+    -- >> Carrega o valor do endereço 0 + X1 em A e armazena em X2
+    LD A,($0,X1)
+    LD (X2),A
+    -- >> Se X1<32 salta para instrução 44
+    CLR A
+    ADD A,(X1)
+    SUB A,#$32
+    JRC #$-9
+
+    -- >> Limpa tudo no final
+    CLR A
+    CLR (X1)
+    CLR (X2)
