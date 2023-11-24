@@ -115,7 +115,7 @@ architecture a_unidade_controle of unidade_controle is
     -- SUB A,(#byte)
     subi <= '1' when opcode = "10100000" else '0';  
     -- LD A,(X)
-    ld <= '1' when opcode = "11110110" else '0';    
+    ld <= '1' when opcode = "11110111" else '0';    
     -- LD ($50),A
     lder <= '1' when opcode = "10110111" else '0';  
     -- LD A,($50)
@@ -145,20 +145,22 @@ architecture a_unidade_controle of unidade_controle is
                     -- endereco_lido + 1 when jrpl = '1' and carry_sub = '1' else
                     "0000000";
 
-    jmp <=  '1' when jpf = '1' or jra = '1' or jrpl = '1' or jrc = '1' or jreq = '1' else
+    jmp <=  '1' when jpf = '1' or jra = '1' else
+            '1' when jrc = '1' and carry = '1' else
+            '1' when jreq = '1' and zero = '1' else
             '0';
 
     -- Acumulador: 001
-    sel_reg_lido_1 <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' or jrpl = '1' or lder = '1' else
-                      dado(2 downto 0) when ldw = '1' or ld = '1' else -- src do ld
+    sel_reg_lido_1 <= "111" when add = '1' or addi = '1' or sub = '1' or subi = '1' or jrpl = '1' or ld = '1' or  lder = '1' else
+                      dado(2 downto 0) when ldw = '1' else -- src do ld
                       "000" when clr = '1' or clrA = '1' else -- no fim o clear é dst <= 0 + 0
                       "000";
     sel_reg_lido_2 <= dado(2 downto 0) when add = '1' or sub = '1' else -- src do sub
                       "000";
 
-    sel_reg_escrito <= "001" when add = '1' or addi = '1' or sub = '1' or subi = '1' or ldre = '1' or ld = '1' else  -- todos os dst são o acumulador
-                       dado(5 downto 3) when ldw = '1' else -- dst do ld
-                       dado(2 downto 0) when clr = '1' or clrA = '1' else -- dst do clear
+    sel_reg_escrito <= "111" when add = '1' or addi = '1' or sub = '1' or subi = '1' or ldre = '1' or clrA = '1' else 
+                       dado(5 downto 3) when ldw = '1' else 
+                       dado(2 downto 0) when clr = '1' or ld = '1' else 
                        "000";
     
     valor_imm <= dado(7 downto 0) when addi = '1' or subi = '1' else

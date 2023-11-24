@@ -49,13 +49,13 @@ architecture a_banco_registradores of banco_registradores is
     begin
 
         wr_en_zero <= '0'   when sel_reg_escrito = "000" else '0';
-        wr_en_A <= wr_en when sel_reg_escrito = "001" else '0';
-        wr_en_X1 <= wr_en when sel_reg_escrito = "010" else '0';
-        wr_en_X2 <= wr_en when sel_reg_escrito = "011" else '0';
-        wr_en_X3 <= wr_en when sel_reg_escrito = "100" else '0';
-        wr_en_X4 <= wr_en when sel_reg_escrito = "101" else '0';
-        wr_en_X5 <= wr_en when sel_reg_escrito = "110" else '0';
-        wr_en_X6 <= wr_en when sel_reg_escrito = "111" else '0';
+        wr_en_A <= wr_en when sel_reg_escrito = "111" else '0';
+        wr_en_X1 <= wr_en when sel_reg_escrito = "001" else '0';
+        wr_en_X2 <= wr_en when sel_reg_escrito = "010" else '0';
+        wr_en_X3 <= wr_en when sel_reg_escrito = "011" else '0';
+        wr_en_X4 <= wr_en when sel_reg_escrito = "100" else '0';
+        wr_en_X5 <= wr_en when sel_reg_escrito = "101" else '0';
+        wr_en_X6 <= wr_en when sel_reg_escrito = "110" else '0';
 
         rst <= '1' when reset = '1' else '0';
 
@@ -117,23 +117,23 @@ architecture a_banco_registradores of banco_registradores is
         );
         
         reg_lido_1 <= lido_zero when sel_reg_lido_1 ="000" else
-                        lido_A when sel_reg_lido_1 ="001" else
-                        lido_X1 when sel_reg_lido_1 ="010" else
-                        lido_X2 when sel_reg_lido_1 ="011" else
-                        lido_X3 when sel_reg_lido_1 ="100" else
-                        lido_X4 when sel_reg_lido_1 ="101" else
-                        lido_X5 when sel_reg_lido_1 ="110" else
-                        lido_X6 when sel_reg_lido_1 ="111" else
+                        lido_A when sel_reg_lido_1 ="111" else
+                        lido_X1 when sel_reg_lido_1 ="001" else
+                        lido_X2 when sel_reg_lido_1 ="010" else
+                        lido_X3 when sel_reg_lido_1 ="011" else
+                        lido_X4 when sel_reg_lido_1 ="100" else
+                        lido_X5 when sel_reg_lido_1 ="101" else
+                        lido_X6 when sel_reg_lido_1 ="110" else
                         "0000000000000000";
 
         reg_lido_2 <= lido_zero when sel_reg_lido_2 ="000" else
-                        lido_A when sel_reg_lido_2 ="001" else
-                        lido_X1 when sel_reg_lido_2 ="010" else
-                        lido_X2 when sel_reg_lido_2 ="011" else
-                        lido_X3 when sel_reg_lido_2 ="100" else
-                        lido_X4 when sel_reg_lido_2 ="101" else
-                        lido_X5 when sel_reg_lido_2 ="110" else
-                        lido_X6 when sel_reg_lido_2 ="111" else
+                        lido_A when sel_reg_lido_2 ="111" else
+                        lido_X1 when sel_reg_lido_2 ="001" else
+                        lido_X2 when sel_reg_lido_2 ="010" else
+                        lido_X3 when sel_reg_lido_2 ="011" else
+                        lido_X4 when sel_reg_lido_2 ="100" else
+                        lido_X5 when sel_reg_lido_2 ="101" else
+                        lido_X6 when sel_reg_lido_2 ="110" else
                         "0000000000000000";
 
 end architecture;

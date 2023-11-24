@@ -5,7 +5,7 @@
 >> REGISTRADORES:
 
 - Zero: Não existe no STM8 original mas criei pra facilitar. Convencionei com os bits 000.
-- A: Acumulador. Convencionei com os bits 001.
+- A: Acumulador. Convencionei com os bits 111.
 - X e Y: Registradores de indexação. Pra facilitar, ao invés de X e Y coloquei como X1 a X6.
 
 >> FLAGS: 
@@ -43,7 +43,7 @@ descrição: carrega o valor do acumulador no endereço de memória especificado
 opcode = F7 = 11110111.
 descrição: carrega o valor do acumulador no endereço de memória especificado.
 
-- LDW (X, X'): pág 117.
+- LDW (X),X': pág 117.
 opcode = FF = 11111111.
 descrição: carrega o valor do registrador dos digitos 2 a 0 no registrador dos digitos 5 a 3.
 

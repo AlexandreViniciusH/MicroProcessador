@@ -14,15 +14,18 @@ entity flip_flop_D is
 end entity;
 
 architecture a_flip_flop_D of flip_flop_D is
+    signal valor : std_logic;
  begin
     process(clk,reset)  -- acionado se houver mudança em clk, reset ou wr_en
     begin
         if reset='1' then
-            Q <= '1';
+            valor <= '1';
         elsif we = '1' then
             if rising_edge(clk) then
-                Q <= D;
+                valor <= D;
             end if;
         end if;
     end process;
+    Q <= valor;
+
 end architecture;

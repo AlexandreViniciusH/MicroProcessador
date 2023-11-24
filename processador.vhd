@@ -16,7 +16,9 @@ entity processador is
         saida_ula: out unsigned (15 downto 0);
         estado    : out unsigned (1 downto 0);
         reg_lido_1      : out unsigned(15 downto 0);
-        reg_lido_2      : out unsigned(15 downto 0)
+        reg_lido_2      : out unsigned(15 downto 0);
+
+        carry_debug : out std_logic
     );
 
 end entity;
@@ -166,7 +168,7 @@ architecture a_processador of processador is
             clk => clk,
             reset => reset,
             we => w_e,
-            D => zero,
+            D => carry,
             Q => carry_uc
         );
 
@@ -174,7 +176,7 @@ architecture a_processador of processador is
             clk => clk,
             reset => reset,
             we => w_e,
-            D => carry,
+            D => zero,
             Q => zero_uc
         );
 
@@ -207,5 +209,7 @@ architecture a_processador of processador is
             saida => escrita,
             carry => carry
         );
+
+        carry_debug <= carry;
 
 end architecture;

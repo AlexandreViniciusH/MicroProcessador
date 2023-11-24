@@ -20,7 +20,8 @@ architecture a_processador_tb of processador_tb is
             saida_ula: out unsigned (15 downto 0);
             estado    : out unsigned (1 downto 0);
             reg_lido_1      : out unsigned(15 downto 0);
-            reg_lido_2      : out unsigned(15 downto 0)
+            reg_lido_2      : out unsigned(15 downto 0);
+            carry_debug      : out std_logic
         );
     end component;
 
@@ -39,6 +40,8 @@ architecture a_processador_tb of processador_tb is
     signal reg_lido_2 : unsigned(15 downto 0);
     signal saida_ula : unsigned(15 downto 0);
 
+    signal carry_debug : std_logic;
+
     begin
         uut: processador port map (
             wr_en    => wr_en,
@@ -48,7 +51,8 @@ architecture a_processador_tb of processador_tb is
             saida_ula  => saida_ula,
             estado     => estado,
             reg_lido_1 => reg_lido_1,
-            reg_lido_2 => reg_lido_2
+            reg_lido_2 => reg_lido_2,
+            carry_debug => carry_debug
         );
 
     reset_global: process
